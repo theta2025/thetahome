@@ -940,6 +940,12 @@
     #theta-news-live .theta-news-card__more{display:none !important;}
     #theta-news-live .theta-news-card:hover .theta-news-card__media{transform:scale(1.08);opacity:.55;}
 
+    /* V18: caricamento news robusto */
+    .theta-news-loading{min-height:250px;border-radius:22px;background:linear-gradient(110deg,#ececf2 8%,#f7f7fa 18%,#ececf2 33%);background-size:220% 100%;animation:theta-news-shimmer 1.35s linear infinite;position:relative;overflow:hidden;}
+    .theta-news-loading:after{content:"CARICAMENTO NEWS";position:absolute;left:22px;bottom:20px;font-size:10px;font-weight:900;letter-spacing:.15em;color:#777884;}
+    @keyframes theta-news-shimmer{to{background-position-x:-220%;}}
+    @media(max-width:700px){.theta-news-loading{min-width:82vw;min-height:220px;flex:0 0 82vw;}}
+
     @media(max-width:700px){
       .theta-manifesto{padding:78px 0 62px !important;}
       .theta-manifesto__title{font-size:36px !important;max-width:100% !important;}
@@ -1138,7 +1144,7 @@
           <div><div class="theta-kicker" style="color:var(--theta-orange)">News</div><h2>Ultime dal Theta.</h2></div>
           <a class="theta-news__all" href="/news">Tutte le news</a>
         </div>
-        <div id="theta-news-live"></div>
+        <div id="theta-news-live"><div class="theta-news-loading"></div><div class="theta-news-loading"></div><div class="theta-news-loading"></div></div>
         <div class="theta-news-fallback" id="theta-news-fallback" style="display:none"></div>
       </div>
     </div>
@@ -1441,16 +1447,30 @@
     return true;
   }
 
+  async function fetchWithTimeout(url,options,timeout){
+    var controller=new AbortController();
+    var timer=setTimeout(function(){controller.abort();},timeout||7000);
+    try{
+      var opts=Object.assign({},options||{}, {signal:controller.signal});
+      return await fetch(url,opts);
+    }finally{clearTimeout(timer);}
+  }
+
+  function showNewsLoading(){
+    var target=document.getElementById('theta-news-live');
+    if(!target || target.querySelector('.theta-news-card')) return;
+    target.innerHTML='<div class="theta-news-loading"></div><div class="theta-news-loading"></div><div class="theta-news-loading"></div>';
+  }
+
   async function mountTildaFeed(){
     var target=document.getElementById('theta-news-live');
     var fallback=document.getElementById('theta-news-fallback');
     if(!target) return false;
 
-    /* Fonte principale: pagina News Tilda. Così la home prende davvero le ultime 3
-       pubblicate e non dipende dal filtro/anno eventualmente visibile in un blocco locale. */
+    /* Fonte principale: pagina News Tilda. */
     try{
-      var response=await fetch('/news?theta_latest='+Date.now(),{cache:'no-store',credentials:'same-origin'});
-      if(response.ok){
+      var response=await fetchWithTimeout('/news?theta_latest='+Date.now(),{cache:'no-store',credentials:'same-origin'},7000);
+      if(response && response.ok){
         var txt=await response.text();
         var doc=new DOMParser().parseFromString(txt,'text/html');
         if(renderLatest(doc)){
@@ -1460,8 +1480,7 @@
       }
     }catch(e){}
 
-    /* Fallback: se /news non è disponibile, legge un eventuale Feed Tilda presente
-       nella pagina, lo ordina comunque per data e ne mostra soltanto tre. */
+    /* Seconda fonte: feed Tilda già presente/rendizzato nella pagina. */
     var home=document.getElementById('theta-home');
     var records=[].slice.call(document.querySelectorAll('[id^="rec"]'));
     var source=records.find(function(rec){
@@ -1475,9 +1494,39 @@
       return true;
     }
 
-    /* Mai mostrare vecchie card statiche: se il feed non risponde, resta solo il link “Tutte le news”. */
     if(fallback) fallback.style.display='none';
     return false;
+  }
+
+  async function loadNewsReliably(){
+    showNewsLoading();
+    var delays=[0,700,1200,1800,2600,3800,5200,7000];
+    for(var i=0;i<delays.length;i++){
+      if(delays[i]) await new Promise(function(resolve){setTimeout(resolve,delays[i]);});
+      if(await mountTildaFeed()) return true;
+    }
+
+    /* Ultimo tentativo quando Tilda aggiunge nodi in ritardo. */
+    return await new Promise(function(resolve){
+      var done=false;
+      var observer=new MutationObserver(async function(){
+        if(done) return;
+        if(await mountTildaFeed()){
+          done=true; observer.disconnect(); resolve(true);
+        }
+      });
+      observer.observe(document.body,{childList:true,subtree:true});
+      setTimeout(async function(){
+        if(done) return;
+        done=true; observer.disconnect();
+        var ok=await mountTildaFeed();
+        if(!ok){
+          var target=document.getElementById('theta-news-live');
+          if(target) target.innerHTML='<a class="theta-news-card" href="/news"><div class="theta-news-card__body"><div><div class="theta-news-card__date">NEWS</div><h3>Leggi le ultime notizie</h3><p>Apri la sezione News per vedere gli aggiornamenti più recenti.</p></div></div></a>';
+        }
+        resolve(ok);
+      },9000);
+    });
   }
 
   function normalizePartnerLogos(){
@@ -1497,12 +1546,7 @@
 
   function start(){
     normalizePartnerLogos();
-    var tries=0;
-    (function retry(){
-      tries++;
-      if(mountTildaFeed() || tries>12) return;
-      setTimeout(retry,500);
-    })();
+    loadNewsReliably();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start);
   else start();
