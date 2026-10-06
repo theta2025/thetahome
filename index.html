@@ -958,6 +958,47 @@
     }
 
   </style>
+
+<style>
+/* V14 - cornice dinamica sulla seconda GIF */
+.theta-motion__frame{position:relative;overflow:hidden;isolation:isolate;}
+.theta-motion__frame::before,
+.theta-motion__frame::after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  pointer-events:none;
+  z-index:6;
+}
+.theta-motion__frame::before{
+  border:1px solid rgba(255,255,255,.28);
+  clip-path:polygon(0 0,32% 0,32% 1px,100% 1px,100% 100%,68% 100%,68% calc(100% - 1px),0 calc(100% - 1px));
+  opacity:.75;
+}
+.theta-motion__frame::after{
+  inset:0;
+  background:
+    linear-gradient(90deg,transparent 0,var(--theta-orange) 45%,#fff 55%,transparent 100%) top left/28% 2px no-repeat,
+    linear-gradient(180deg,transparent 0,var(--theta-red) 45%,#fff 55%,transparent 100%) top right/2px 28% no-repeat,
+    linear-gradient(270deg,transparent 0,var(--theta-blue-2) 45%,#fff 55%,transparent 100%) bottom right/28% 2px no-repeat,
+    linear-gradient(0deg,transparent 0,var(--theta-orange) 45%,#fff 55%,transparent 100%) bottom left/2px 28% no-repeat;
+  transform:translate3d(var(--theta-frame-x,0px),var(--theta-frame-y,0px),0);
+  opacity:.92;
+  transition:transform .08s linear;
+}
+.theta-motion__frame .theta-motion__caption{display:none!important;}
+@media(max-width:700px){
+  .theta-motion__frame::before{inset:7px;opacity:.62;}
+  .theta-motion__frame::after{
+    background:
+      linear-gradient(90deg,transparent 0,var(--theta-orange) 48%,#fff 52%,transparent 100%) top left/34% 1.5px no-repeat,
+      linear-gradient(180deg,transparent 0,var(--theta-red) 48%,#fff 52%,transparent 100%) top right/1.5px 34% no-repeat,
+      linear-gradient(270deg,transparent 0,var(--theta-blue-2) 48%,#fff 52%,transparent 100%) bottom right/34% 1.5px no-repeat,
+      linear-gradient(0deg,transparent 0,var(--theta-orange) 48%,#fff 52%,transparent 100%) bottom left/1.5px 34% no-repeat;
+  }
+}
+@media(prefers-reduced-motion:reduce){.theta-motion__frame::after{transform:none!important;transition:none!important;}}
+</style>
 </head>
 <body>
 <main class="theta-home" id="theta-home">
@@ -1093,7 +1134,7 @@
 
         <article class="theta-project theta-project--art">
           <div class="theta-project__top"><span class="theta-project__num">02</span><span class="theta-project__tag">Arte contemporanea</span></div>
-          <div><span class="theta-project__spark" aria-hidden="true">✦</span><img class="theta-project__brand" src="https://static.tildacdn.net/tild3962-6163-4733-a335-663765643231/thetarte_logoRisorsa.png" alt="ThetArte"><p>La mostra che accompagna il festival e mette in dialogo arti visive, spazio e pubblico.</p><a class="theta-project__link" href="/opencall">Scopri ThetArte</a></div>
+          <div><span class="theta-project__spark" aria-hidden="true">✦</span><img class="theta-project__brand" src="https://static.tildacdn.net/tild3962-6163-4733-a335-663765643231/thetarte_logoRisorsa.png" alt="ThetArte"><p>La mostra che accompagna il festival e mette in dialogo arti visive, spazio e pubblico.</p><a class="theta-project__link" href="https://www.thetafilmfestival.it/call4artist">Scopri ThetArte</a></div>
           <span class="theta-project__orb" aria-hidden="true"></span>
         </article>
 
@@ -1110,7 +1151,7 @@
     <div class="theta-wrap theta-motion__grid">
       <figure class="theta-motion__figure">
         <div class="theta-motion__frame">
-          <figcaption class="theta-motion__caption"><span>Festival diffuso / connessioni</span><b>02</b></figcaption>
+          
         </div>
         <span class="theta-motion-path" aria-hidden="true"></span>
       </figure>
@@ -1145,7 +1186,7 @@
         <div class="theta-kicker" style="color:var(--theta-red)">La mostra del festival</div>
         <h3>La mostra del Theta.</h3>
         <p>Fotografia, pittura, scultura, installazioni e arte digitale entrano nel festival come parte della sua identità visiva.</p>
-        <a class="theta-btn theta-btn--ghost" href="/opencall">Scopri ThetArte</a>
+        <a class="theta-btn theta-btn--ghost" href="https://www.thetafilmfestival.it/call4artist">Scopri ThetArte</a>
       </div>
     </div>
   </section>
@@ -1437,6 +1478,28 @@
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start);
   else start();
+})();
+</script>
+
+<script>
+(function(){
+  const frame=document.querySelector('.theta-motion--two .theta-motion__frame');
+  if(!frame) return;
+  let ticking=false;
+  function update(){
+    const r=frame.getBoundingClientRect();
+    const vh=window.innerHeight||document.documentElement.clientHeight;
+    const progress=Math.max(0,Math.min(1,(vh-r.top)/(vh+r.height)));
+    const x=(progress-.5)*34;
+    const y=(.5-progress)*24;
+    frame.style.setProperty('--theta-frame-x',x.toFixed(1)+'px');
+    frame.style.setProperty('--theta-frame-y',y.toFixed(1)+'px');
+    ticking=false;
+  }
+  function onScroll(){if(!ticking){requestAnimationFrame(update);ticking=true;}}
+  update();
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll,{passive:true});
 })();
 </script>
 </body>
