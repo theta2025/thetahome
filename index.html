@@ -1055,10 +1055,7 @@
           <a class="theta-news__all" href="/news">Tutte le news</a>
         </div>
         <div id="theta-news-live"></div>
-        <div class="theta-news-fallback" id="theta-news-fallback">
-          <a class="theta-news-card" href="/giuria"><span class="theta-news-card__media" style="background-image:url('https://static.tildacdn.net/tild3664-6664-4539-a432-353066313665/arci_sommaRisorsa_53.png')"></span><div class="theta-news-card__body"><div><div class="theta-news-card__date">02.10.2026</div><h3>Giuria al Giardino ARCI Casa del Popolo</h3><p>Una nuova tappa della giuria itinerante.</p></div><div class="theta-news-card__more">Scopri</div></div></a>
-          <a class="theta-news-card" href="/giuria"><span class="theta-news-card__media" style="background-image:url('https://static.tildacdn.net/tild6433-3137-4330-b136-386664386131/image.jpeg')"></span><div class="theta-news-card__body"><div><div class="theta-news-card__date">28.09.2026</div><h3>Officine in Scena</h3><p>La giuria entra nella scuola di recitazione di Nola.</p></div><div class="theta-news-card__more">Scopri</div></div></a>
-        </div>
+        <div class="theta-news-fallback" id="theta-news-fallback" style="display:none"></div>
       </div>
     </div>
   </section>
@@ -1241,6 +1238,7 @@
     }
     return '';
   }
+
   function imageOf(el){
     var img=el.querySelector('img');
     if(img){
@@ -1248,7 +1246,11 @@
     }
     var nodes=[el].concat([].slice.call(el.querySelectorAll('*')));
     for(var i=0;i<nodes.length;i++){
-      var bg=getComputedStyle(nodes[i]).backgroundImage;
+      var bg='';
+      try{ bg=getComputedStyle(nodes[i]).backgroundImage; }catch(e){}
+      if((!bg || bg==='none') && nodes[i].getAttribute){
+        bg=nodes[i].getAttribute('style') || '';
+      }
       if(bg && bg!=='none'){
         var m=bg.match(/url\(["']?(.*?)["']?\)/);
         if(m) return m[1];
@@ -1256,6 +1258,7 @@
     }
     return '';
   }
+
   function findItems(source){
     var selectors=[
       '.t-feed__post', '.t-feed__grid-col', '.t-feed__col-grid', '.t-feed__post-popup',
@@ -1270,14 +1273,45 @@
       return a.querySelector('img') && textOf(a,['h1','h2','h3','h4','.t-name','.t-descr']);
     });
   }
+
+  function dateTextOf(item){
+    var time=item.querySelector('time');
+    if(time){
+      var dt=time.getAttribute('datetime');
+      if(dt) return dt;
+    }
+    return textOf(item,['.t-feed__post-date','.t-feed__post-published','.t-uptitle','time','[class*="date"]']);
+  }
+
+  function parseNewsDate(raw){
+    if(!raw) return 0;
+    var s=String(raw).trim();
+    var direct=Date.parse(s);
+    if(!isNaN(direct)) return direct;
+    var m=s.match(/(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2,4})/);
+    if(m){
+      var y=+m[3]; if(y<100) y+=2000;
+      return new Date(y,+m[2]-1,+m[1]).getTime();
+    }
+    var months={gennaio:0,febbraio:1,marzo:2,aprile:3,maggio:4,giugno:5,luglio:6,agosto:7,settembre:8,ottobre:9,novembre:10,dicembre:11};
+    var low=s.toLowerCase();
+    var it=low.match(/(\d{1,2})\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})/);
+    if(it) return new Date(+it[3],months[it[2]],+it[1]).getTime();
+    return 0;
+  }
+
+  function itemDate(item){
+    return parseNewsDate(dateTextOf(item));
+  }
+
   function buildCard(item){
     var anchor=item.matches && item.matches('a[href]') ? item : item.querySelector('a[href]');
     if(!anchor) return null;
-    var href=anchor.href || '#';
+    var href=anchor.href || anchor.getAttribute('href') || '#';
     var title=textOf(item,['h1','h2','h3','h4','.t-feed__post-title','.t-name','.t-title']);
     if(!title) return null;
     var desc=textOf(item,['.t-feed__post-descr','.t-descr','p']);
-    var date=textOf(item,['.t-feed__post-date','.t-feed__post-published','.t-uptitle','time']);
+    var date=dateTextOf(item);
     var img=imageOf(item);
 
     var card=document.createElement('a');
@@ -1288,7 +1322,7 @@
 
     var media=document.createElement('span');
     media.className='theta-news-card__media';
-    if(img) media.style.backgroundImage='url("'+img.replace(/"/g,'\"')+'")';
+    if(img) media.style.backgroundImage='url("'+img.replace(/"/g,'\\"')+'")';
     card.appendChild(media);
 
     var body=document.createElement('div');
@@ -1301,31 +1335,80 @@
     card.appendChild(body);
     return card;
   }
-  function mountTildaFeed(){
+
+  function renderLatest(source){
+    var target=document.getElementById('theta-news-live');
+    if(!target || !source) return false;
+    var items=findItems(source);
+    if(!items.length) return false;
+
+    /* Ordina SEMPRE per data, dalla più recente alla più vecchia. */
+    var ranked=items.map(function(item,index){
+      return {item:item,date:itemDate(item),index:index};
+    }).filter(function(x){
+      return !!textOf(x.item,['h1','h2','h3','h4','.t-feed__post-title','.t-name','.t-title']);
+    });
+
+    ranked.sort(function(a,b){
+      if(a.date && b.date && a.date!==b.date) return b.date-a.date;
+      if(a.date && !b.date) return -1;
+      if(!a.date && b.date) return 1;
+      return a.index-b.index;
+    });
+
+    var seen={};
+    var cards=[];
+    for(var i=0;i<ranked.length && cards.length<3;i++){
+      var c=buildCard(ranked[i].item);
+      if(!c) continue;
+      var key=(c.href||'')+'|'+(c.querySelector('h3')?c.querySelector('h3').textContent:'');
+      if(seen[key]) continue;
+      seen[key]=true;
+      cards.push(c);
+    }
+    if(!cards.length) return false;
+    target.innerHTML='';
+    cards.forEach(function(c){target.appendChild(c);});
+    return true;
+  }
+
+  async function mountTildaFeed(){
     var target=document.getElementById('theta-news-live');
     var fallback=document.getElementById('theta-news-fallback');
-    var home=document.getElementById('theta-home');
     if(!target) return false;
+
+    /* Fonte principale: pagina News Tilda. Così la home prende davvero le ultime 3
+       pubblicate e non dipende dal filtro/anno eventualmente visibile in un blocco locale. */
+    try{
+      var response=await fetch('/news?theta_latest='+Date.now(),{cache:'no-store',credentials:'same-origin'});
+      if(response.ok){
+        var txt=await response.text();
+        var doc=new DOMParser().parseFromString(txt,'text/html');
+        if(renderLatest(doc)){
+          if(fallback) fallback.style.display='none';
+          return true;
+        }
+      }
+    }catch(e){}
+
+    /* Fallback: se /news non è disponibile, legge un eventuale Feed Tilda presente
+       nella pagina, lo ordina comunque per data e ne mostra soltanto tre. */
+    var home=document.getElementById('theta-home');
     var records=[].slice.call(document.querySelectorAll('[id^="rec"]'));
     var source=records.find(function(rec){
       if(home && home.contains(rec)) return false;
       return !!rec.querySelector('.t-feed, .t-feed__container, [class*="t-feed__"], [data-feed-id]');
     });
-    if(!source) return false;
+    if(source && renderLatest(source)){
+      source.style.setProperty('display','none','important');
+      source.setAttribute('aria-hidden','true');
+      if(fallback) fallback.style.display='none';
+      return true;
+    }
 
-    var items=findItems(source);
-    var cards=[];
-    items.slice(0,3).forEach(function(item){var c=buildCard(item);if(c) cards.push(c);});
-    if(!cards.length) return false;
-
-    target.innerHTML='';
-    cards.forEach(function(c){target.appendChild(c);});
+    /* Mai mostrare vecchie card statiche: se il feed non risponde, resta solo il link “Tutte le news”. */
     if(fallback) fallback.style.display='none';
-
-    /* Il feed Tilda resta nella pagina come sorgente ma non occupa spazio e non si vede. */
-    source.style.setProperty('display','none','important');
-    source.setAttribute('aria-hidden','true');
-    return true;
+    return false;
   }
 
   function normalizePartnerLogos(){
