@@ -957,7 +957,24 @@
       #theta-news-live .theta-news-card,#theta-news-live .theta-news-card__body{min-height:215px !important;}
     }
 
-  </style>
+  
+    /* Mobile: patrocini + sponsor, sotto cultural partner + cinema */
+    @media(max-width:700px){
+      .theta-hero-support{grid-template-columns:1fr 1fr !important;gap:16px 12px !important;align-items:start;}
+      .theta-hero-support__group{border:0 !important;padding:0 !important;min-width:0;}
+      .theta-hero-support__group:nth-child(1){order:1;}
+      .theta-hero-support__group:nth-child(3){order:2;}
+      .theta-hero-support__group:nth-child(2){order:3;padding-top:8px !important;border-top:1px solid rgba(255,255,255,.10) !important;}
+      .theta-hero-support__group:nth-child(4){order:4;padding-top:8px !important;border-top:1px solid rgba(255,255,255,.10) !important;}
+      .theta-hero-support__group:nth-child(2) .theta-hero-support__label,
+      .theta-hero-support__group:nth-child(4) .theta-hero-support__label{font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.48);}
+      .theta-hero-support__group:nth-child(2) .theta-hero-support__item img,
+      .theta-hero-support__group:nth-child(4) .theta-hero-support__item img{max-height:28px !important;max-width:120px !important;}
+      .theta-hero-support__logos{gap:9px 10px !important;}
+      .theta-hero-support__item{min-height:34px;}
+    }
+
+</style>
 
 <style>
 /* V14 - cornice dinamica sulla seconda GIF */
