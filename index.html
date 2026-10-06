@@ -974,6 +974,35 @@
       .theta-hero-support__item{min-height:34px;}
     }
 
+
+    /* V17 refinements */
+    .theta-partners__head--simple{display:block !important;margin-bottom:34px !important;}
+    .theta-partners__head--simple h2{margin:0 !important;}
+
+    @media(max-width:700px){
+      .theta-news--embedded{overflow:hidden;}
+      #theta-news-live{
+        display:flex !important;
+        grid-template-columns:none !important;
+        gap:12px !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        padding:0 20px 12px 0;
+        margin-right:-20px;
+        scrollbar-width:none;
+      }
+      #theta-news-live::-webkit-scrollbar{display:none;}
+      #theta-news-live .theta-news-card{
+        flex:0 0 min(82vw,320px) !important;
+        width:min(82vw,320px) !important;
+        min-height:220px !important;
+        scroll-snap-align:start;
+      }
+      #theta-news-live .theta-news-card__body{min-height:220px !important;}
+    }
+
 </style>
 
 <style>
@@ -1114,20 +1143,6 @@
       </div>
     </div>
   </section>
-
-  <section class="theta-manifesto">
-    <div class="theta-wrap theta-manifesto__grid">
-      <div>
-        <div class="theta-kicker" style="color:var(--theta-red)">Il festival</div>
-        <h2 class="theta-manifesto__title">Il cinema è il punto di partenza. Non il confine.</h2>
-        <p class="theta-manifesto__lead">Theta è un festival internazionale dedicato all’opera breve: cinema, arti visive e pubblico nello stesso spazio.</p>
-        <div class="theta-manifesto__body">
-          <p>Tra concorso, ThetArte, giuria itinerante e incontri, il festival costruisce relazioni che continuano durante l’anno.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="theta-inside" id="dentro-il-festival">
     <div class="theta-wrap">
       <div class="theta-section-head">
@@ -1171,7 +1186,7 @@
       </figure>
       <div class="theta-motion__copy">
         <div class="theta-kicker" style="color:var(--theta-blue)">Connessioni</div>
-        <h3>Il festival continua.</h3>
+        <h3>Oltre il cinema.</h3>
         <p>Proiezioni, incontri e altri linguaggi mantengono vivo il dialogo tra opere e pubblico.</p>
         <div class="theta-motion-icons" aria-hidden="true">
           <span class="theta-motion-icon theta-motion-icon--ring"></span>
@@ -1208,8 +1223,7 @@
 
   <section class="theta-partners" id="partners">
     <div class="theta-wrap">
-      <div class="theta-partners__head"><h2>Partner.<br>A parte, ma con noi.</h2><p>Una rete di realtà culturali, universitarie, associative, produttive e territoriali che accompagna il festival durante l’anno. I partner vivono qui in uno spazio autonomo, senza interrompere il racconto principale della home.</p></div>
-      <div class="theta-partners__label">Partner, collaborazioni, media e realtà culturali</div>
+      <div class="theta-partners__head theta-partners__head--simple"><h2>Partner</h2></div>
       <div class="theta-partner-grid">
         <a class="theta-partner" href="https://www.mondadoristore.it/negozi/libreria/mondadori-point-nola/MFR06G" target="_blank" rel="noopener" aria-label="Mondadori Point Nola"><img src="https://static.tildacdn.net/tild3832-3932-4262-a537-353939356239/IMG_88214.PNG" alt="Mondadori Point Nola" loading="lazy"></a>
         <a class="theta-partner theta-partner--rpz" href="https://www.rpz.it/" target="_blank" rel="noopener" aria-label="Radio Punto Zero"><img src="https://static.tildacdn.net/tild3365-3130-4933-a366-363965316366/logorpz-4.png" alt="Radio Punto Zero" loading="lazy"></a>
@@ -1254,7 +1268,7 @@
     <div class="theta-wrap theta-prize__grid">
       <div class="theta-prize__copy">
         <div class="theta-kicker" style="color:var(--theta-orange)">Il premio</div>
-        <h2>Un oggetto <span>da tenere.</span></h2>
+        <h2>Un'opera <span>come premio.</span></h2>
         <p class="lead">Le sculture simbolo del festival sono opere dell’artista e designer campano Marcello Silvestre.</p>
         <p>Il premio entra nell’identità del Theta come presenza visiva e materica: non una semplice targa, ma un segno che resta.</p>
         <div class="theta-prize__author">Marcello Silvestre · artista e designer</div>
