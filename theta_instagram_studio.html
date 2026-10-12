@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>THETA Studio 9.0 · Social · RAW · Video</title>
+<title>THETA Studio 9.1 · Social · RAW · Video</title>
 <meta name="theme-color" content="#17193d" />
 <style>
 @font-face{
@@ -42,7 +42,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 .note{font-size:10px;line-height:1.45;color:var(--muted);margin:8px 0 0}.tiny-actions{display:flex;gap:6px;flex-wrap:wrap}.tiny-actions button{border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 8px;font-size:9px;font-weight:900;color:#555b6e}.tiny-actions button:hover{border-color:#aeb6d0;color:var(--theta)}
 .workspace{min-width:0;min-height:0;position:relative;background:radial-gradient(circle at 25% 12%,rgba(77,101,170,.26),transparent 34%),radial-gradient(circle at 88% 76%,rgba(215,53,39,.12),transparent 28%),#17193d;overflow:hidden}
 .workspace:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
-.stage-wrap{position:absolute;inset:0 0 var(--timeline) 0;display:flex;align-items:center;justify-content:center;padding:26px;overflow:auto}.stage-shell{position:relative;display:flex;align-items:center;justify-content:center}.stage-badge{position:absolute;left:12px;top:12px;z-index:4;background:rgba(18,20,48,.74);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 10px;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}.story-tools{position:absolute;right:14px;top:14px;z-index:5;display:none;flex-direction:column;gap:8px}.story-tools.show{display:flex}.story-tool{width:38px;height:38px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(16,18,44,.78);backdrop-filter:blur(12px);color:#fff;font:900 18px/1 Arial;cursor:pointer}.story-tip{position:absolute;left:14px;bottom:14px;z-index:5;display:none;max-width:290px;background:rgba(16,18,44,.78);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:14px;padding:9px 11px;font-size:10px;font-weight:800;letter-spacing:.04em}.story-tip.show{display:block}.saved-presets{display:flex;flex-direction:column;gap:8px}.saved-preset{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px}.saved-preset b{font-size:11px;color:var(--theta)}.saved-preset small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.saved-preset .sp-actions{display:flex;gap:6px}.saved-preset button{padding:8px 10px;border-radius:10px}
+.stage-wrap{position:absolute;inset:0 0 var(--timeline) 0;display:flex;align-items:center;justify-content:center;padding:26px;overflow:auto}.stage-shell{position:relative;display:flex;align-items:center;justify-content:center}.stage-badge{position:absolute;left:12px;top:12px;z-index:4;background:rgba(18,20,48,.74);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 10px;font-size:9px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}.story-tools{position:absolute;right:14px;top:14px;z-index:5;display:none;flex-direction:column;gap:8px}.story-tools.show{display:flex}.story-tool{width:38px;height:38px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(16,18,44,.78);backdrop-filter:blur(12px);color:#fff;font:900 18px/1 Arial;cursor:pointer}.story-tip{position:absolute;left:14px;bottom:14px;z-index:5;display:none;max-width:290px;background:rgba(16,18,44,.78);border:1px solid rgba(255,255,255,.15);color:#fff;border-radius:14px;padding:9px 11px;font-size:10px;font-weight:800;letter-spacing:.04em}.story-tip.show{display:block}.tiny-actions button.format-active{background:#333788!important;color:#fff!important;border-color:#333788!important}.saved-presets{display:flex;flex-direction:column;gap:8px}.saved-preset{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px}.saved-preset b{font-size:11px;color:var(--theta)}.saved-preset small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.saved-preset .sp-actions{display:flex;gap:6px}.saved-preset button{padding:8px 10px;border-radius:10px}
 canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var(--top) - var(--timeline) - 50px);width:auto;height:auto;background:#dfe2e8;box-shadow:0 35px 100px rgba(0,0,0,.34),0 0 0 1px rgba(255,255,255,.08);border-radius:2px;touch-action:none;cursor:default}.safe-guide{position:absolute;inset:7%;border:1px dashed rgba(255,255,255,.55);pointer-events:none;mix-blend-mode:difference;display:none}.safe-guide.on{display:block}
 .timeline{position:fixed;z-index:50;left:var(--left);right:var(--right);bottom:0;height:var(--timeline);display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(251,251,253,.95);border-top:1px solid var(--line);backdrop-filter:blur(16px);overflow-x:auto;box-shadow:0 -14px 34px rgba(14,18,44,.08)}.timeline-label{flex:0 0 auto;position:sticky;left:0;z-index:3;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:0 9px 0 3px;background:linear-gradient(90deg,#fbfbfd 80%,rgba(251,251,253,0));min-width:86px}.timeline-label b{font-family:"Mostra Nuova AltD W00 Bold",Arial,sans-serif;font-size:11px;color:var(--theta)}.timeline-label span{font-size:9px;color:var(--muted);font-weight:700}.add-thumb{flex:0 0 78px;height:88px;border:1.5px dashed #aeb5cc;border-radius:14px;background:#f5f6fb;color:var(--theta);font-size:22px;font-weight:400}
 .thumb{flex:0 0 76px;position:relative;border:2px solid transparent;border-radius:13px;padding:3px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.07);transition:.15s ease}.thumb.active{border-color:var(--theta);transform:translateY(-2px)}.thumb canvas{width:66px;height:62px;object-fit:cover;max-width:none;max-height:none;box-shadow:none;border-radius:8px;background:#eee}.thumb .n{position:absolute;right:6px;top:6px;background:rgba(13,16,37,.7);color:#fff;border-radius:999px;font-size:8px;font-weight:900;padding:3px 5px}.thumb-controls{display:flex;gap:3px;margin-top:3px}.thumb-controls button{flex:1;border:0;background:#f0f1f6;border-radius:6px;padding:2px 0;font-size:9px}.empty{padding:16px;color:var(--muted);font-size:11px}
@@ -153,7 +153,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
 
 <div id="thetaHubLauncher">
   <section class="hub-home">
-    <div class="hub-top"><div class="hub-brand">THETA STUDIO<small>PHOTO · RAW · VIDEO</small></div><div style="font-size:9px;letter-spacing:.15em;color:#c5d3e8;font-weight:900" data-studio-version>V9.0 · FESTIVAL TOOLKIT</div></div>
+    <div class="hub-top"><div class="hub-brand">THETA STUDIO<small>PHOTO · RAW · VIDEO</small></div><div style="font-size:9px;letter-spacing:.15em;color:#c5d3e8;font-weight:900" data-studio-version>V9.1 · FESTIVAL TOOLKIT</div></div>
     <div class="hub-title"><h1>COSA<br>CREIAMO?</h1><p>Un unico accesso per il Social Studio, la conversione RAW in batch e il nuovo editor video. Tutto lavora localmente nel browser: i file restano sul dispositivo salvo le librerie tecniche necessarie.</p></div>
     <div class="hub-grid">
       <button class="hub-card" data-open-workspace="editor"><span class="hub-no">01 · SOCIAL</span><h2>SOCIAL<br>STUDIO</h2><p>L’editor foto e caroselli costruito finora, con Story 3 foto, color, texture, preset, maschere e motion.</p><span class="go">APRI EDITOR →</span></button>
@@ -452,8 +452,8 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
 
       <div class="group" id="projectPresetGroup">
         <div class="group-head"><h3>14 · FORMAT</h3><span class="mini">layout festival</span></div>
-        <div class="tiny-actions"><button id="applyFifthEditionPreset">5 EDIZIONE</button><button id="applyGiuriaPreset">GIURIA</button><button id="saveProjectPreset">Salva format corrente</button></div>
-        <p class="note"><b>5 EDIZIONE</b> mantiene il preset attuale. <b>GIURIA</b> usa lo stesso layout aggiungendo i due loghi partner e <b>www.thetafilmfestival.it</b> sul fondo.</p>
+        <div class="tiny-actions"><button id="clearFormatPreset">NESSUN FORMAT</button><button id="applyFifthEditionPreset">5 EDIZIONE</button><button id="applyGiuriaPreset">GIURIA</button><button id="saveProjectPreset">Salva format corrente</button></div>
+        <p class="note"><b>NESSUN FORMAT</b> ripristina lo stato precedente. <b>5 EDIZIONE</b> usa il layout 9:16 a 3 foto e aggiunge soltanto il logo Theta in basso. <b>GIURIA</b> mantiene le 3 foto, il logo in basso e aggiunge i due loghi partner al centro: tutti i loghi sono livelli spostabili e ridimensionabili.</p>
         <div class="saved-presets" id="savedPresets"><div class="empty">Nessun preset salvato.</div></div>
       </div>
 
@@ -526,7 +526,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
 (() => {
   const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
   const stage=$('#stage'), ctx=stage.getContext('2d');
-  let slides=[], current=0, logoImg=null, logoSourceURL='', giuriaExtraImgs=[], raf=0, startTime=performance.now(), selectedLayerId=null, photoScope='single', selectedStorySlot=0, storyRects=[], suppressThumbClickUntil=0; const stagePointers=new Map();
+  let slides=[], current=0, logoImg=null, logoSourceURL='', giuriaExtraImgs=[], formatRestoreSnapshot=null, raf=0, startTime=performance.now(), selectedLayerId=null, photoScope='single', selectedStorySlot=0, storyRects=[], suppressThumbClickUntil=0; const stagePointers=new Map();
   let layerSeq=1, previewIndex=0, previewRAF=0, previewStart=0, ffmpegEngine=null, ffmpegLoadingPromise=null, ffmpegBlobURLs=[], mixerChannel='red', lastFFmpegLog='', mixerRenderTimer=0, jszipLoadingPromise=null, previewWheelLock=0, mobileQuickMode='', mobileQuickParam='';
   const formats={'4:5':[1080,1350],'1:1':[1080,1080],'9:16':[1080,1920],'16:9':[1920,1080],'3:4':[1080,1440]};
   const animatedPresets=new Set(['orbit','starlight','kinetic','spotlight','burst','glowwash','thetaflare','startrail','aurorastar','navigator']);
@@ -692,9 +692,62 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   function updateLayerSelection(layer){selectedLayerId=layer?layer.id:null;rebuildLayers();syncLayerEditor();render()}
   function photoDragLimits(slide,r){const fx=ensureFx(slide),src=slide?.img;if(!src)return{x:.22,y:.22};const fit=coverRect(src,r.w,r.h,state.fit,fx.zoom||1);if(state.fit==='contain')return{x:.32,y:.32};const maxDx=Math.max(r.w,fit.w)*.27,maxDy=Math.max(r.h,fit.h)*.27;return{x:Math.max(0,Math.min(.55,(fit.w-r.w)/2/Math.max(1,maxDx))),y:Math.max(0,Math.min(.55,(fit.h-r.h)/2/Math.max(1,maxDy)))}}
   function pointerPair(){const pts=[...stagePointers.values()];return pts.length>=2?[pts[0],pts[1]]:null}
-  function onCanvasPointerDown(e){const [W,H]=formatSize(),elapsed=(performance.now()-startTime)/1000,pt=canvasPointFromEvent(e);stagePointers.set(e.pointerId,pt);const selected=getSelectedLayer();const pair=pointerPair();if(pair&&selected){const dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y));canvasDrag={mode:'pinch',layer:selected,baseDist:dist,baseSize:selected.size};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}if(selected){const hitSel=hitTestLayer(selected,pt,W,H,current,elapsed);if(hitSel&&hitSel.rotate){canvasDrag={mode:'rotate',layer:selected,startAngle:Math.atan2(pt.y-hitSel.meta.y,pt.x-hitSel.meta.x)-((selected.rotation||0)*Math.PI/180)};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}if(hitSel&&hitSel.resize){canvasDrag={mode:'resize',layer:selected,baseDist:Math.hypot(pt.x-hitSel.meta.x,pt.y-hitSel.meta.y),baseSize:selected.size};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}if(hitSel&&hitSel.body){canvasDrag={mode:'move',layer:selected,startX:pt.x,startY:pt.y,baseX:selected.x,baseY:selected.y};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}}const found=layerAtPoint(pt,elapsed);if(found){updateLayerSelection(found.layer);canvasDrag={mode:'move',layer:found.layer,startX:pt.x,startY:pt.y,baseX:found.layer.x,baseY:found.layer.y};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}if(state.format==='9:16'&&state.storyTriptych){const rect=computeStoryRects(W,H).find(r=>pt.x>=r.x&&pt.x<=r.x+r.w&&pt.y>=r.y&&pt.y<=r.y+r.h);if(rect&&slides[rect.slideIndex]){selectedStorySlot=rect.slot;current=rect.slideIndex;updateLayerSelection(null);syncControls();rebuildTimeline();const fx=ensureFx(slides[rect.slideIndex]);canvasDrag={mode:'photo-move',slide:slides[rect.slideIndex],rect,startX:pt.x,startY:pt.y,baseX:fx.x,baseY:fx.y};stage.setPointerCapture?.(e.pointerId);render();e.preventDefault();return}}updateLayerSelection(null)}
-  function onCanvasPointerMove(e){const [W,H]=formatSize(),pt=canvasPointFromEvent(e),elapsed=(performance.now()-startTime)/1000;if(stagePointers.has(e.pointerId))stagePointers.set(e.pointerId,pt);if(canvasDrag?.mode==='pinch'){const pair=pointerPair(),l=canvasDrag.layer;if(pair&&l){const dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y));l.size=clamp(canvasDrag.baseSize*(dist/canvasDrag.baseDist),2,250);syncLayerEditor();rebuildLayers();render();e.preventDefault()}return}if(!canvasDrag){const selected=getSelectedLayer();if(selected){const hit=hitTestLayer(selected,pt,W,H,current,elapsed);stage.style.cursor=hit?(hit.rotate?'grab':hit.resize?'nwse-resize':'move'):'default'}else if(state.format==='9:16'&&state.storyTriptych&&computeStoryRects(W,H).some(r=>pt.x>=r.x&&pt.x<=r.x+r.w&&pt.y>=r.y&&pt.y<=r.y+r.h)){stage.style.cursor='move'}else{stage.style.cursor=layerAtPoint(pt,elapsed)?'move':'default'}return}if(canvasDrag.mode==='photo-move'){const fx=ensureFx(canvasDrag.slide),r=canvasDrag.rect,lim=photoDragLimits(canvasDrag.slide,r),sensitivity=.48;fx.x=clamp(canvasDrag.baseX+((pt.x-canvasDrag.startX)/Math.max(1,r.w))*sensitivity,-lim.x,lim.x);fx.y=clamp(canvasDrag.baseY+((pt.y-canvasDrag.startY)/Math.max(1,r.h))*sensitivity,-lim.y,lim.y);syncControls();render();e.preventDefault();return}const l=canvasDrag.layer;if(canvasDrag.mode==='move'){l.x=canvasDrag.baseX+((pt.x-canvasDrag.startX)/W)*100;l.y=canvasDrag.baseY+((pt.y-canvasDrag.startY)/H)*100}if(canvasDrag.mode==='resize'){const meta=layerMetrics(l,W,H,current,elapsed);const dist=Math.max(8,Math.hypot(pt.x-meta.x,pt.y-meta.y));l.size=Math.max(2,canvasDrag.baseSize*(dist/Math.max(8,canvasDrag.baseDist)))}if(canvasDrag.mode==='rotate'){const meta=layerMetrics(l,W,H,current,elapsed);const ang=Math.atan2(pt.y-meta.y,pt.x-meta.x);l.rotation=((ang-canvasDrag.startAngle)*180/Math.PI)}syncLayerEditor();rebuildLayers();render();e.preventDefault()}
-  function onCanvasPointerUp(e){stagePointers.delete(e.pointerId);if(canvasDrag?.mode==='pinch'&&stagePointers.size>=1)return;canvasDrag=null;stage.style.cursor='default'}
+  function currentPhotoTarget(pt,W,H){
+    if(state.format==='9:16'&&state.storyTriptych){
+      const rect=computeStoryRects(W,H).find(r=>pt.x>=r.x&&pt.x<=r.x+r.w&&pt.y>=r.y&&pt.y<=r.y+r.h);
+      if(rect&&slides[rect.slideIndex])return{slide:slides[rect.slideIndex],rect,slideIndex:rect.slideIndex,slot:rect.slot}
+      return null
+    }
+    if(slides[current]&&pt.x>=0&&pt.x<=W&&pt.y>=0&&pt.y<=H)return{slide:slides[current],rect:{x:0,y:0,w:W,h:H,slideIndex:current,slot:0},slideIndex:current,slot:0};
+    return null
+  }
+  function beginPhotoPinch(pair,drag){
+    const fx=ensureFx(drag.slide),midX=(pair[0].x+pair[1].x)/2,midY=(pair[0].y+pair[1].y)/2,dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y));
+    canvasDrag={mode:'photo-pinch',slide:drag.slide,rect:drag.rect,baseDist:dist,baseZoom:fx.zoom,baseX:fx.x,baseY:fx.y,baseMidX:midX,baseMidY:midY}
+  }
+  function onCanvasPointerDown(e){
+    const [W,H]=formatSize(),elapsed=(performance.now()-startTime)/1000,pt=canvasPointFromEvent(e);
+    stagePointers.set(e.pointerId,pt);
+    const pair=pointerPair();
+    if(pair&&canvasDrag?.mode==='photo-move'){beginPhotoPinch(pair,canvasDrag);stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+    if(pair&&canvasDrag?.mode==='move'&&canvasDrag.layer){const l=canvasDrag.layer,dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y));canvasDrag={mode:'pinch',layer:l,baseDist:dist,baseSize:l.size};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+    const selected=getSelectedLayer();
+    if(selected){
+      const hitSel=hitTestLayer(selected,pt,W,H,current,elapsed);
+      if(hitSel&&hitSel.rotate){canvasDrag={mode:'rotate',layer:selected,startAngle:Math.atan2(pt.y-hitSel.meta.y,pt.x-hitSel.meta.x)-((selected.rotation||0)*Math.PI/180)};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+      if(hitSel&&hitSel.resize){canvasDrag={mode:'resize',layer:selected,baseDist:Math.hypot(pt.x-hitSel.meta.x,pt.y-hitSel.meta.y),baseSize:selected.size};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+      if(hitSel&&hitSel.body){canvasDrag={mode:'move',layer:selected,startX:pt.x,startY:pt.y,baseX:selected.x,baseY:selected.y};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+    }
+    const found=layerAtPoint(pt,elapsed);
+    if(found){updateLayerSelection(found.layer);canvasDrag={mode:'move',layer:found.layer,startX:pt.x,startY:pt.y,baseX:found.layer.x,baseY:found.layer.y};stage.setPointerCapture?.(e.pointerId);e.preventDefault();return}
+    const photo=currentPhotoTarget(pt,W,H);
+    if(photo){
+      selectedStorySlot=photo.slot||0;current=photo.slideIndex;updateLayerSelection(null);syncControls();rebuildTimeline();
+      const fx=ensureFx(photo.slide);canvasDrag={mode:'photo-move',slide:photo.slide,rect:photo.rect,startX:pt.x,startY:pt.y,baseX:fx.x,baseY:fx.y};
+      stage.setPointerCapture?.(e.pointerId);render();e.preventDefault();return
+    }
+    updateLayerSelection(null)
+  }
+  function onCanvasPointerMove(e){
+    const [W,H]=formatSize(),pt=canvasPointFromEvent(e),elapsed=(performance.now()-startTime)/1000;
+    if(stagePointers.has(e.pointerId))stagePointers.set(e.pointerId,pt);
+    if(canvasDrag?.mode==='photo-pinch'){
+      const pair=pointerPair(),d=canvasDrag;if(pair){const fx=ensureFx(d.slide),dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y)),ratio=dist/d.baseDist,midX=(pair[0].x+pair[1].x)/2,midY=(pair[0].y+pair[1].y)/2;fx.zoom=clamp(d.baseZoom*ratio,.45,4);const lim=photoDragLimits(d.slide,d.rect);fx.x=clamp(d.baseX+((midX-d.baseMidX)/Math.max(1,d.rect.w))*.72,-lim.x,lim.x);fx.y=clamp(d.baseY+((midY-d.baseMidY)/Math.max(1,d.rect.h))*.72,-lim.y,lim.y);syncControls();render();e.preventDefault()}return
+    }
+    if(canvasDrag?.mode==='pinch'){const pair=pointerPair(),l=canvasDrag.layer;if(pair&&l){const dist=Math.max(8,Math.hypot(pair[0].x-pair[1].x,pair[0].y-pair[1].y));l.size=clamp(canvasDrag.baseSize*(dist/canvasDrag.baseDist),2,250);syncLayerEditor();rebuildLayers();render();e.preventDefault()}return}
+    if(!canvasDrag){const selected=getSelectedLayer();if(selected){const hit=hitTestLayer(selected,pt,W,H,current,elapsed);stage.style.cursor=hit?(hit.rotate?'grab':hit.resize?'nwse-resize':'move'):'default'}else if(currentPhotoTarget(pt,W,H)){stage.style.cursor='move'}else{stage.style.cursor=layerAtPoint(pt,elapsed)?'move':'default'}return}
+    if(canvasDrag.mode==='photo-move'){const fx=ensureFx(canvasDrag.slide),r=canvasDrag.rect,lim=photoDragLimits(canvasDrag.slide,r),sensitivity=.62;fx.x=clamp(canvasDrag.baseX+((pt.x-canvasDrag.startX)/Math.max(1,r.w))*sensitivity,-lim.x,lim.x);fx.y=clamp(canvasDrag.baseY+((pt.y-canvasDrag.startY)/Math.max(1,r.h))*sensitivity,-lim.y,lim.y);syncControls();render();e.preventDefault();return}
+    const l=canvasDrag.layer;if(!l)return;
+    if(canvasDrag.mode==='move'){l.x=canvasDrag.baseX+((pt.x-canvasDrag.startX)/W)*100;l.y=canvasDrag.baseY+((pt.y-canvasDrag.startY)/H)*100}
+    if(canvasDrag.mode==='resize'){const meta=layerMetrics(l,W,H,current,elapsed),dist=Math.max(8,Math.hypot(pt.x-meta.x,pt.y-meta.y));l.size=Math.max(2,canvasDrag.baseSize*(dist/Math.max(8,canvasDrag.baseDist)))}
+    if(canvasDrag.mode==='rotate'){const meta=layerMetrics(l,W,H,current,elapsed),ang=Math.atan2(pt.y-meta.y,pt.x-meta.x);l.rotation=((ang-canvasDrag.startAngle)*180/Math.PI)}
+    syncLayerEditor();rebuildLayers();render();e.preventDefault()
+  }
+  function onCanvasPointerUp(e){
+    stagePointers.delete(e.pointerId);
+    if((canvasDrag?.mode==='pinch'||canvasDrag?.mode==='photo-pinch')&&stagePointers.size>=1)return;
+    canvasDrag=null;stage.style.cursor='default'
+  }
   function drawTintTexture(c,W,H,index,count,fx){if(!fx.tintTextureType||fx.tintTextureType==='none'||(+fx.tintTextureOpacity||0)<=0)return;const continuous=state.continuous&&state.textureContinuous,virtualW=W*Math.max(1,count),shift=continuous?index*W:0,totalW=continuous?virtualW:W,strength=clamp((+fx.tintTextureOpacity||0)/100,0,1);c.save();c.translate(-shift,0);c.globalAlpha=1;c.globalCompositeOperation=fx.tintTextureBlend||'multiply';const tint=fx.tintColor||state.primary,baseA=.10+.42*strength,strongA=.16+.55*strength;
     if(fx.tintTextureType==='paper'){c.fillStyle=rgba('#efe7d9',.12+.22*strength);c.fillRect(0,0,totalW,H);for(let i=0;i<1800;i++){const x=(i*61.37)%totalW,y=(i*97.11)%H,sz=1+(i%4);c.fillStyle=rgba(i%2?tint:'#665c52',baseA*(.45+(i%5)*.08));c.fillRect(x,y,sz,sz)}for(let i=0;i<110;i++){const y=(i*47.2)%H;c.strokeStyle=rgba('#ffffff',.025+.08*strength);c.lineWidth=1+(i%3);c.beginPath();c.moveTo(0,y);c.bezierCurveTo(totalW*.3,y+6,totalW*.66,y-7,totalW,y+3);c.stroke()}}
     if(fx.tintTextureType==='fibers'){for(let i=0;i<1450;i++){const x=(i*53.1)%totalW,y=(i*77.9)%H,len=14+(i%34),a=((i*17)%360)*Math.PI/180;c.strokeStyle=rgba(i%3?tint:'#ffffff',baseA*(.55+(i%4)*.12));c.lineWidth=.7+(i%3)*.55;c.beginPath();c.moveTo(x,y);c.lineTo(x+Math.cos(a)*len,y+Math.sin(a)*len);c.stroke()}}
@@ -713,7 +766,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   async function ensureGiuriaExtraLogos(){if(giuriaExtraImgs.length===2&&giuriaExtraImgs.every(Boolean))return giuriaExtraImgs;const urls=['https://static.tildacdn.net/tild6637-3239-4138-b632-373134393539/IMG_2659.PNG','https://static.tildacdn.net/tild6464-3065-4461-a431-383533343832/IMG_2657.PNG'];const loaded=[];for(const u of urls){try{loaded.push(await loadAuxImageURL(u));render()}catch(e){console.warn('Logo Giuria',e);loaded.push(null)}}giuriaExtraImgs=loaded;return giuriaExtraImgs}
   function drawProjectPresetOverlay(c,W,H){if(state.projectPreset!=='giuria')return;const siteY=H-H*.017;c.save();c.shadowColor='rgba(0,0,0,.55)';c.shadowBlur=Math.max(5,W*.007);c.textAlign='center';c.textBaseline='bottom';c.fillStyle='#fff';c.font=`800 ${Math.max(14,W*.016)}px Arial`;c.fillText('www.thetafilmfestival.it',W/2,siteY);c.restore()}
   function drawSlide(c,index,W,H,timeSec=0,quality='preview'){const slide=slides[index]||blankSlide();c.clearRect(0,0,W,H);if(state.format==='9:16'&&state.storyTriptych){drawStoryTriptych(c,index,W,H,timeSec,quality)}else{drawPhoto(c,slide,W,H,timeSec,quality,index,Math.max(1,slides.length))}drawPreset(c,W,H,index,Math.max(1,slides.length),timeSec);drawAllLayers(c,W,H,index,Math.max(1,slides.length),timeSec);drawTexture(c,W,H);drawText(c,W,H);drawLogo(c,W,H);drawProjectPresetOverlay(c,W,H);if(quality==='preview'&&state.format==='9:16'&&state.storyTriptych)drawStorySelectionOverlay(c,W,H);if(index===current&&quality==='preview')drawSelectionOverlay(c,W,H,timeSec);if(state.slideNo&&slides.length>1){c.save();c.fillStyle='rgba(255,255,255,.94)';c.font=`700 ${Math.round(Math.min(W,H)*.02)}px Arial`;c.textAlign='right';c.fillText(`${String(index+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`,W-W*.05,H-H*.04);c.restore()}}
-  function render(ts=performance.now()){const[W,H]=formatSize();if(stage.width!==W||stage.height!==H){stage.width=W;stage.height=H}const elapsed=(ts-startTime)/1000;drawSlide(ctx,current,W,H,elapsed);$('#stageBadge').textContent=`THETA · ${state.format} · ${current+1}/${Math.max(1,slides.length)}`;const showStory=state.format==='9:16'&&state.storyTriptych&&slides.length>0;$('#storyTools').classList.toggle('show',showStory);$('#storyTip').classList.toggle('show',showStory);cancelAnimationFrame(raf);if(state.motion!=='none'||animatedPresets.has(state.style)||state.layers.some(l=>l.animation&&l.animation!=='none'))raf=requestAnimationFrame(render)}
+  function render(ts=performance.now()){const[W,H]=formatSize();if(stage.width!==W||stage.height!==H){stage.width=W;stage.height=H}const elapsed=(ts-startTime)/1000;drawSlide(ctx,current,W,H,elapsed);$('#stageBadge').textContent=`THETA · ${state.format} · ${current+1}/${Math.max(1,slides.length)}`;const showStory=state.format==='9:16'&&state.storyTriptych&&slides.length>0;$('#storyTools').classList.toggle('show',showStory);$('#storyTip')?.classList.toggle('show',showStory);cancelAnimationFrame(raf);if(state.motion!=='none'||animatedPresets.has(state.style)||state.layers.some(l=>l.animation&&l.animation!=='none'))raf=requestAnimationFrame(render)}
 
   const photoControlMap={zoom:'zoom',rotation:'rotation',posX:'x',posY:'y',exposure:'exposure',brightness:'brightness',highlights:'highlights',shadows:'shadows',blacks:'blacks',contrast:'contrast',saturation:'saturation',hue:'hue',temperature:'temperature',grayscale:'grayscale',blur:'blur',darkness:'darkness',vignette:'vignette',tintColor:'tintColor',tintOpacity:'tintOpacity',tintBlend:'tintBlend',tintTextureType:'tintTextureType',tintTextureOpacity:'tintTextureOpacity',tintTextureBlend:'tintTextureBlend',sbOn:'sbOn',sbSize:'sbSize',sbSubjectColor:'sbSubjectColor',sbSubjectOpacity:'sbSubjectOpacity',sbBgColor:'sbBgColor',sbBgOpacity:'sbBgOpacity',sbBgDarkness:'sbBgDarkness'};
   function syncControls(){const fx=activeFx();Object.entries(photoControlMap).forEach(([id,key])=>{const el=$('#'+id);if(el){if(el.type==='checkbox')el.checked=!!fx[key];else el.value=fx[key]}});$('#selectedName').textContent=slides.length?(active().name||`Slide ${current+1}`):'Nessuna foto';$('#photoCount').textContent=`${slides.length} ${slides.length===1?'immagine':'immagini'}`;updateOutputs();syncMixerControls();syncLayerEditor();if(mobileQuickMode&&document.getElementById('mobileQuickPanel')?.classList.contains('show'))setTimeout(syncMqRange,0)}
@@ -749,7 +802,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   async function addAssetLayers(files){for(const f of files){if(!f.type.startsWith('image/'))continue;const img=await loadImage(f);const l=defaultLayer('asset');l.assetImg=img;l.name=(f.name||'overlay').replace(/\.[^.]+$/,'');l.size=24;state.layers.push(l);selectedLayerId=l.id}rebuildLayers();syncLayerEditor();render();if(mobileQuickMode==='forme')buildMqShapes()}
   $$('.shape-add').forEach(b=>b.onclick=()=>addLayer(b.dataset.shape));
   function getSelectedLayer(){return state.layers.find(l=>l.id===selectedLayerId)||null}
-  function rebuildLayers(){const box=$('#layers');box.innerHTML='';if(!state.layers.length){box.innerHTML='<div class="empty">Aggiungi una forma o un PNG per modificarlo.</div>';return} [...state.layers].reverse().forEach(l=>{const it=document.createElement('div');it.className='layer-item'+(l.id===selectedLayerId?' active':'');const ico=document.createElement('div');ico.className='layer-icon';ico.textContent=({star:'✦',bar:'▰',circle:'●',ring:'○',triangle:'▲',line:'╱',square:'■',cross:'＋',diamond:'◆',hex:'⬢',arrow:'➜',glow:'☼',asset:'🖼'})[l.type]||'◆';const name=document.createElement('div');name.className='layer-name';name.innerHTML=`<b>${l.name}</b><span>${l.scope==='all'?'tutte le slide':`slide ${l.slideIndex+1}`}${l.continuous?' · continua':''}</span>`;const vis=document.createElement('button');vis.className='layer-vis';vis.textContent=l.visible===false?'○':'●';vis.onclick=e=>{e.stopPropagation();l.visible=l.visible===false;rebuildLayers();render()};it.append(ico,name,vis);it.onclick=()=>{selectedLayerId=l.id;rebuildLayers();syncLayerEditor();render()};box.appendChild(it)})}
+  function rebuildLayers(){const box=$('#layers');box.innerHTML='';if(!state.layers.length){box.innerHTML='<div class="empty">Aggiungi una forma o un PNG per modificarlo.</div>';return} [...state.layers].reverse().forEach(l=>{const it=document.createElement('div');it.className='layer-item'+(l.id===selectedLayerId?' active':'');const ico=document.createElement('div');ico.className='layer-icon';ico.textContent=({star:'✦',bar:'▰',circle:'●',ring:'○',triangle:'▲',line:'╱',square:'■',cross:'＋',diamond:'◆',hex:'⬢',arrow:'➜',glow:'☼',asset:'🖼'})[l.type]||'◆';const name=document.createElement('div');name.className='layer-name';name.innerHTML=`<b>${l.name}</b><span>${l.formatManaged?'FORMAT · ':''}${l.scope==='all'?'tutte le slide':`slide ${l.slideIndex+1}`}${l.continuous?' · continua':''}</span>`;const vis=document.createElement('button');vis.className='layer-vis';vis.textContent=l.visible===false?'○':'●';vis.onclick=e=>{e.stopPropagation();l.visible=l.visible===false;rebuildLayers();render()};it.append(ico,name,vis);it.onclick=()=>{selectedLayerId=l.id;rebuildLayers();syncLayerEditor();render()};box.appendChild(it)})}
   function syncLayerEditor(){const l=getSelectedLayer();$('#layerEditor').style.display=l?'block':'none';$('#layerChip').textContent=l?l.name:'Nessun livello';if(!l)return;$('#layerType').textContent=l.type;$('#layerContinuous').checked=!!l.continuous;$('#layerColor').value=l.color;$('#layerOpacity').value=l.opacity;$('#layerBlend').value=l.blend;$('#layerX').value=l.x;$('#layerY').value=l.y;$('#layerSize').value=l.size;$('#layerThickness').value=l.thickness;$('#layerRotation').value=l.rotation;$('#layerAnimation').value=l.animation;$('#layerAnimDuration').value=l.animDuration;const isAsset=l.type==='asset';$('#layerColor').disabled=isAsset;$('#layerThickness').disabled=isAsset;$$('#layerScope button').forEach(b=>b.classList.toggle('active',b.dataset.scope===l.scope));updateOutputs()}
   $$('#layerScope button').forEach(b=>b.onclick=()=>{const l=getSelectedLayer();if(!l)return;l.scope=b.dataset.scope;if(l.scope==='single')l.slideIndex=current;syncLayerEditor();rebuildLayers();render()});
   const layerInputs={layerContinuous:['continuous','checkbox'],layerColor:['color','value'],layerOpacity:['opacity','number'],layerBlend:['blend','value'],layerX:['x','number'],layerY:['y','number'],layerSize:['size','number'],layerThickness:['thickness','number'],layerRotation:['rotation','number'],layerAnimation:['animation','value'],layerAnimDuration:['animDuration','number']};
@@ -783,23 +836,69 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   function presetStoreRead(){try{return JSON.parse(localStorage.getItem('theta_project_presets')||'[]')}catch{return []}}
   function presetStoreWrite(arr){localStorage.setItem('theta_project_presets',JSON.stringify(arr))}
   function renderSavedPresets(){const box=$('#savedPresets');const arr=presetStoreRead();if(!arr.length){box.innerHTML='<div class="empty">Nessun preset salvato.</div>';return}box.innerHTML='';arr.forEach((item,idx)=>{const row=document.createElement('div');row.className='saved-preset';row.innerHTML=`<div><b>${item.name}</b><small>${item.meta||'preset personalizzato'}</small></div><div class="sp-actions"><button data-act="apply">Apri</button><button data-act="del">✕</button></div>`;row.querySelector('[data-act="apply"]').onclick=()=>applyProjectPreset(item.data,false);row.querySelector('[data-act="del"]').onclick=()=>{const list=presetStoreRead();list.splice(idx,1);presetStoreWrite(list);renderSavedPresets()};box.appendChild(row)})}
-  function removeFormatManagedLayers(){state.layers=state.layers.filter(l=>!l.formatManaged)}
-  function createFormatAssetLayer(img,name,x,y,size){const l=defaultLayer('asset');l.assetImg=img;l.name=name;l.size=size;l.x=x;l.y=y;l.scope='all';l.continuous=false;l.formatManaged=true;l.opacity=100;l.rotation=0;l.blend='source-over';return l}
-  async function addGiuriaFormatLayers(){await ensureGiuriaExtraLogos();removeFormatManagedLayers();const valid=giuriaExtraImgs.filter(Boolean);if(!valid.length)return;const placements=[{x:82,y:17,size:23,name:'Logo Giuria 1'},{x:82,y:49,size:23,name:'Logo Giuria 2'}];valid.slice(0,2).forEach((img,i)=>{state.layers.push(createFormatAssetLayer(img,placements[i].name,placements[i].x,placements[i].y,placements[i].size))});selectedLayerId=state.layers.filter(l=>l.formatManaged).at(-1)?.id||selectedLayerId}
-  async function applyStoryFestivalPreset(kind='fifth'){
-    state.format='9:16';state.storyTriptych=true;state.storyBorder=false;state.storyGap=0;state.motion='zoom';state.logoOn=true;state.logoPos='bottom-right';state.logoSize=18;state.style='none';$('#style').value='none';state.projectPreset=kind;
-    if(slides.length){slides.forEach(sl=>{const fx=ensureFx(sl);fx.zoom=1.05;fx.x=0;fx.y=0});autoColorMatchSlides(false)}
-    try{await loadImageURL('https://static.tildacdn.net/tild3439-3662-4261-b136-623939346236/scrittaRisorsa_8330x.png','#logoURL',img=>{logoImg=img;logoSourceURL='https://static.tildacdn.net/tild3439-3662-4261-b136-623939346236/scrittaRisorsa_8330x.png';$('#logoOn').checked=true})}catch(e){console.warn('Logo Theta non caricato',e)}
-    removeFormatManagedLayers();
-    if(kind==='giuria')await addGiuriaFormatLayers();
-    syncControls();rebuildTimeline();rebuildLayers();syncLayerEditor();syncPresetCards();
-    if(typeof buildMqFormats==='function'&&mobileQuickMode==='format')buildMqFormats();
-    if(typeof buildMqShapes==='function'&&mobileQuickMode==='forme')buildMqShapes();
-    render();
-    toast(kind==='giuria'?'Format GIURIA applicato.':'Format 5 Edizione applicato.')
+  const FORMAT_THETA_LOGO_URL='https://static.tildacdn.net/tild3439-3662-4261-b136-623939346236/scrittaRisorsa_8330x.png';
+  function cloneSimple(v){try{return structuredClone(v)}catch{return JSON.parse(JSON.stringify(v))}}
+  function captureFormatRestoreSnapshot(){
+    if(formatRestoreSnapshot)return;
+    formatRestoreSnapshot={
+      state:{format:state.format,storyTriptych:state.storyTriptych,storyBorder:state.storyBorder,storyGap:state.storyGap,motion:state.motion,logoOn:state.logoOn,logoPos:state.logoPos,logoSize:state.logoSize},
+      photoFx:slides.map(sl=>cloneSimple(ensureFx(sl))),
+      current,selectedStorySlot
+    }
   }
-  async function applyFifthEditionPreset(){state.projectPreset='fifth';return applyStoryFestivalPreset('fifth')}
-  async function applyGiuriaPreset(){state.projectPreset='giuria';return applyStoryFestivalPreset('giuria')}
+  function syncFormatButtons(){
+    const map={none:'#clearFormatPreset',fifth:'#applyFifthEditionPreset',giuria:'#applyGiuriaPreset'};
+    Object.entries(map).forEach(([id,sel])=>$(sel)?.classList.toggle('format-active',(state.projectPreset||'none')===id));
+    if(typeof buildMqFormats==='function'&&mobileQuickMode==='format')buildMqFormats()
+  }
+  function removeFormatManagedLayers(){state.layers=state.layers.filter(l=>!l.formatManaged);if(!state.layers.some(l=>l.id===selectedLayerId))selectedLayerId=null}
+  function createFormatAssetLayer(img,name,x,y,size){const l=defaultLayer('asset');l.assetImg=img;l.name=name;l.size=size;l.x=x;l.y=y;l.scope='all';l.continuous=false;l.formatManaged=true;l.opacity=100;l.rotation=0;l.blend='source-over';return l}
+  async function loadFormatThetaLogo(){return loadAuxImageURL(FORMAT_THETA_LOGO_URL)}
+  async function addFifthEditionFormatLayers(){
+    removeFormatManagedLayers();
+    try{const img=await loadFormatThetaLogo();state.layers.push(createFormatAssetLayer(img,'Logo 5 Edizione',50,93,42))}
+    catch(e){console.warn('Logo 5 Edizione',e);toast('Logo 5 Edizione non caricato.')}
+  }
+  async function addGiuriaFormatLayers(){
+    removeFormatManagedLayers();
+    try{const theta=await loadFormatThetaLogo();state.layers.push(createFormatAssetLayer(theta,'Logo 5 Edizione',50,93,42))}catch(e){console.warn('Logo 5 Edizione',e)}
+    await ensureGiuriaExtraLogos();
+    const valid=giuriaExtraImgs.filter(Boolean);
+    const placements=[{x:35,y:50,size:26,name:'Logo Giuria 1'},{x:65,y:50,size:26,name:'Logo Giuria 2'}];
+    valid.slice(0,2).forEach((img,i)=>state.layers.push(createFormatAssetLayer(img,placements[i].name,placements[i].x,placements[i].y,placements[i].size)));
+  }
+  async function applyStoryFestivalPreset(kind='fifth'){
+    captureFormatRestoreSnapshot();
+    state.format='9:16';
+    state.storyTriptych=true;
+    state.storyBorder=false;
+    state.storyGap=0;
+    state.logoOn=false;
+    state.projectPreset=kind;
+    selectedStorySlot=0;
+    if(kind==='giuria')await addGiuriaFormatLayers();else await addFifthEditionFormatLayers();
+    syncControls();rebuildTimeline();rebuildLayers();syncLayerEditor();syncFormatButtons();render();
+    toast(kind==='giuria'?'Format GIURIA applicato. I loghi sono modificabili.':'Format 5 EDIZIONE applicato.')
+  }
+  async function applyFifthEditionPreset(){return applyStoryFestivalPreset('fifth')}
+  async function applyGiuriaPreset(){return applyStoryFestivalPreset('giuria')}
+  function clearFestivalFormat(){
+    removeFormatManagedLayers();
+    if(formatRestoreSnapshot){
+      const st=formatRestoreSnapshot.state;
+      Object.assign(state,st);
+      slides.forEach((sl,i)=>{if(formatRestoreSnapshot.photoFx[i])sl.fx=cloneSimple(formatRestoreSnapshot.photoFx[i])});
+      current=Math.min(formatRestoreSnapshot.current,Math.max(0,slides.length-1));
+      selectedStorySlot=formatRestoreSnapshot.selectedStorySlot||0;
+    }else{
+      state.storyTriptych=false;state.storyBorder=true;state.storyGap=20;state.motion='none';state.logoOn=false;
+    }
+    state.projectPreset='none';
+    formatRestoreSnapshot=null;
+    selectedLayerId=null;
+    syncControls();rebuildTimeline();rebuildLayers();syncLayerEditor();syncFormatButtons();render();
+    toast('Nessun format · stato precedente ripristinato.')
+  }
   function saveCurrentProjectPreset(){const name=prompt('Nome del preset?');if(!name)return;const list=presetStoreRead();list.unshift({name,meta:`${state.format} · ${state.storyTriptych?'story 3 foto':'layout base'}`,data:snapshotProjectPreset()});presetStoreWrite(list.slice(0,24));renderSavedPresets();toast('Format salvato.')}
   function searchFeature(q){const term=(q||'').trim().toLowerCase();if(!term)return;const groups=$$('.group');let found=null;groups.forEach(g=>{const text=g.innerText.toLowerCase();g.classList.toggle('highlight',text.includes(term));if(!found&&text.includes(term))found=g});if(found){const side=found.closest('.sidebar');if(window.innerWidth<=840&&side){closeMobileQuick();$$('#mobileEditorbar button').forEach(x=>x.classList.remove('active'));side.classList.add('open');$('#mobilePanelBackdrop').classList.add('show')}found.classList.remove('collapsed');found.scrollIntoView({behavior:'smooth',block:'start'});toast('Funzione trovata.')}else toast('Nessuna funzione trovata.')}
   async function ensureJSZip(){if(window.JSZip)return window.JSZip;if(jszipLoadingPromise)return jszipLoadingPromise;jszipLoadingPromise=(async()=>{let err;for(const u of ['https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js','https://unpkg.com/jszip@3.10.1/dist/jszip.min.js']){try{setStatus('Carico il motore ZIP…',8,true);await loadScript(u,20000);if(window.JSZip)return window.JSZip}catch(e){err=e}}throw err||new Error('JSZip non disponibile')})().catch(e=>{jszipLoadingPromise=null;throw e});return jszipLoadingPromise}
@@ -838,7 +937,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   function buildMqChips(mode){const box=$('#mqChips');box.innerHTML='';if(mode==='hsl'){for(const [ch,name] of Object.entries(mixerNames)){const b=document.createElement('button');b.className='mq-chip'+(ch===mixerChannel?' active':'');b.innerHTML=`<span class="dot" style="background:${({red:'#e33d32',orange:'#e77d24',yellow:'#e1c62d',green:'#43a35e',cyan:'#37aebe',blue:'#3d65c7',purple:'#774caa',magenta:'#c7498e'})[ch]}"></span>${name}`;b.onclick=()=>{mixerChannel=ch;buildMqChips('hsl');syncMixerControls();syncMqRange()};box.appendChild(b)}const row=document.createElement('div');row.style.display='contents';(mqConfigs.hsl).forEach(cfg=>{const b=document.createElement('button');b.className='mq-chip'+(cfg[0]===mobileQuickParam?' active':'');b.textContent=cfg[1];b.onclick=()=>{mobileQuickParam=cfg[0];buildMqChips('hsl');syncMqRange()};box.appendChild(b)});return}
     (mqConfigs[mode]||[]).forEach(cfg=>{const b=document.createElement('button');b.className='mq-chip'+(cfg[0]===mobileQuickParam?' active':'');b.textContent=cfg[1];b.onclick=()=>{mobileQuickParam=cfg[0];buildMqChips(mode);syncMqRange()};box.appendChild(b)})}
   const mobilePresets=[['clean','▯','CLEAN'],['orbit','◎','ORBIT'],['editorial','◧','EDITORIAL'],['signal','⌜','SIGNAL'],['starlight','✦','STAR'],['kinetic','↗','KINETIC'],['frameflow','▣','FLOW'],['spotlight','◌','LIGHT'],['ribbons','≋','RIBBON'],['archive','▦','ARCHIVE'],['mono','◫','MONO'],['burst','✷','BURST'],['glowwash','☼','GLOW'],['shadowslice','◢','SHADOW'],['thetaflare','✦','FLARE'],['duostar','—','BEAM'],['startrail','↗','TRAIL'],['aurorastar','◌','AURORA'],['navigator','◎','NAV'],['halo','⊙','HALO'],['none','×','NONE']];
-  function buildMqFormats(){const row=$('#mqPresetRow');row.innerHTML='';const formats=[['Ⅴ','5 EDIZIONE','fifth'],['G','GIURIA','giuria']];formats.forEach(([ico,label,id])=>{const b=document.createElement('button');b.className='mq-preset'+(state.projectPreset===id?' active':'');b.innerHTML=`<span>${ico}</span><b>${label}</b>`;b.onclick=async()=>{if(id==='fifth')await applyFifthEditionPreset();else await applyGiuriaPreset();buildMqFormats()};row.appendChild(b)})}
+  function buildMqFormats(){const row=$('#mqPresetRow');row.innerHTML='';const formats=[['×','NESSUNO','none'],['Ⅴ','5 EDIZIONE','fifth'],['G','GIURIA','giuria']];formats.forEach(([ico,label,id])=>{const b=document.createElement('button');b.className='mq-preset'+((state.projectPreset||'none')===id?' active':'');b.innerHTML=`<span>${ico}</span><b>${label}</b>`;b.onclick=async()=>{if(id==='none')clearFestivalFormat();else if(id==='fifth')await applyFifthEditionPreset();else await applyGiuriaPreset();buildMqFormats()};row.appendChild(b)})}
   function buildMqPresets(){const row=$('#mqPresetRow');row.innerHTML='';mobilePresets.forEach(([id,ico,label])=>{const b=document.createElement('button');b.className='mq-preset'+(['orbit','starlight','kinetic','spotlight','burst','glowwash','thetaflare','startrail','aurorastar','navigator'].includes(id)?' motion':'')+(state.style===id?' active':'');b.dataset.preset=id;b.innerHTML=`<span>${ico}</span><b>${label}</b>`;b.onclick=()=>{state.style=id;$('#style').value=id;syncPresetCards();buildMqPresets();render()};row.appendChild(b)})}
   function buildMqShapes(){const row=$('#mqPresetRow');row.innerHTML='';const shapes=[['star','✦','STELLA'],['bar','▰','FASCIA'],['circle','●','CERCHIO'],['ring','○','ANELLO'],['triangle','▲','TRIANGOLO'],['line','╱','LINEA'],['square','■','BLOCCO'],['cross','＋','CROCE'],['diamond','◆','ROMBO'],['hex','⬢','ESAGONO'],['arrow','➜','FRECCIA'],['glow','☼','GLOW']];shapes.forEach(([id,ico,label])=>{const b=document.createElement('button');b.className='mq-preset';b.innerHTML=`<span>${ico}</span><b>${label}</b>`;b.onclick=()=>{addLayer(id);buildMqShapes();toast(label+' aggiunto. Trascinalo sullo schermo; due dita = dimensione.')};row.appendChild(b)});
     const add=document.createElement('button');add.className='mq-preset mq-add-png';add.innerHTML='<span>＋</span><b>PNG</b>';add.onclick=()=>$('#assetInput').click();row.appendChild(add);
@@ -863,7 +962,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
   $('#storyCenter').onclick=()=>{if(!slides[current])return;const fx=ensureFx(slides[current]);fx.x=0;fx.y=0;syncControls();render()};
   document.addEventListener('keydown',e=>{if($('#igPreview').classList.contains('show')){if(e.key==='Escape')closeInstagramPreview();if(e.key==='ArrowRight')moveInstagramPreview(1);if(e.key==='ArrowLeft')moveInstagramPreview(-1);return}if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='e'){e.preventDefault();exportCurrent('image/png')}if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowRight'&&slides.length){current=(current+1)%slides.length;syncControls();rebuildTimeline();render()}if(e.key==='ArrowLeft'&&slides.length){current=(current-1+slides.length)%slides.length;syncControls();rebuildTimeline();render()}});
 
-  $('#applyFifthEditionPreset').onclick=applyFifthEditionPreset;$('#applyGiuriaPreset').onclick=applyGiuriaPreset;$('#saveProjectPreset').onclick=saveCurrentProjectPreset;renderSavedPresets();const searchInput=$('#featureSearch');searchInput.addEventListener('keydown',e=>{if(e.key==='Enter')searchFeature(searchInput.value)});searchInput.addEventListener('search',()=>searchFeature(searchInput.value));
+  $('#clearFormatPreset').onclick=clearFestivalFormat;$('#applyFifthEditionPreset').onclick=applyFifthEditionPreset;$('#applyGiuriaPreset').onclick=applyGiuriaPreset;$('#saveProjectPreset').onclick=saveCurrentProjectPreset;syncFormatButtons();renderSavedPresets();const searchInput=$('#featureSearch');searchInput.addEventListener('keydown',e=>{if(e.key==='Enter')searchFeature(searchInput.value)});searchInput.addEventListener('search',()=>searchFeature(searchInput.value));
   $('#convertCurrentPng').onclick=()=>{if(!slides.length){toast('Aggiungi una foto.');return}exportCurrent('image/png')};window.THETA_EDITOR_API={downloadCurrentPNG:()=>exportCurrent('image/png'),addPhotos,render,loadFFmpegEngine};
   rebuildTimeline();rebuildLayers();syncControls();render();
 })();
@@ -872,7 +971,7 @@ canvas#stage{display:block;max-width:min(60vw,790px);max-height:calc(100vh - var
 <script id="thetaHubScript">
 (() => {
   const $h=s=>document.querySelector(s), $$h=s=>[...document.querySelectorAll(s)];
-  const THETA_STUDIO_VERSION='9.0';
+  const THETA_STUDIO_VERSION='9.1';
   document.title=`THETA Studio ${THETA_STUDIO_VERSION} · Social · RAW · Video`;
   document.querySelectorAll('[data-studio-version]').forEach(el=>el.textContent=`V${THETA_STUDIO_VERSION} · FESTIVAL TOOLKIT`);
   const RAW_EXT=new Set(['arw','dng','cr2','cr3','nef','rw2','orf','raf','raw']);
