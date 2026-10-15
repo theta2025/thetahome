@@ -1050,6 +1050,19 @@
   }
 }
 @media(prefers-reduced-motion:reduce){.theta-motion__frame::after{transform:none!important;transition:none!important;}}
+
+    /* V19 — Giuria itinerante aggiornata */
+    .theta-jury-compact__dates>div{grid-template-columns:70px 1fr;align-items:start;}
+    .theta-jury-compact__dates strong{line-height:1.3;}
+    .theta-jury-compact__dates strong em{display:block;margin-top:5px;font-style:normal;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--theta-red);}
+    .theta-jury-compact__dates .theta-jury-compact__next{margin-top:7px;padding:13px 12px;border:1px solid rgba(215,53,39,.32);border-radius:14px;background:rgba(215,53,39,.055);}
+    .theta-jury-compact__dates .theta-jury-compact__next span{color:var(--theta-red);}
+    @media(max-width:700px){
+      .theta-jury-compact__dates>div{grid-template-columns:60px 1fr;gap:8px;padding:10px 0;}
+      .theta-jury-compact__dates span{font-size:19px;}
+      .theta-jury-compact__dates strong{font-size:12px;}
+      .theta-jury-compact__dates .theta-jury-compact__next{padding:11px 10px;}
+    }
 </style>
 </head>
 <body>
@@ -1132,9 +1145,11 @@
         <h2>La giuria<br><em>si muove.</em></h2>
         <p>Le opere incontrano pubblico, associazioni e luoghi culturali della Campania.</p>
         <div class="theta-jury-compact__dates">
-          <div><span>01.10</span><strong>Somma Vesuviana</strong></div>
-          <div><span>25.09</span><strong>Nola</strong></div>
-          <div><span>17.09</span><strong>Cimitile</strong></div>
+          <div><span>01.10</span><strong>Giardino ARCI Casa del Popolo · Somma Vesuviana</strong></div>
+          <div><span>09.10</span><strong>Macass APS · Cava de’ Tirreni</strong></div>
+          <div><span>13.10</span><strong>CrocoPie Studio · Aversa</strong></div>
+          <div><span>14.10</span><strong>Foyer Cafè · Teatro Nuovo, Salerno</strong></div>
+          <div class="theta-jury-compact__next"><span>23.10</span><strong>Radio ARCI Masaniello APS · Saviano <em>Prossimo incontro</em></strong></div>
         </div>
         <a class="theta-btn theta-btn--ghost" href="/giuria">Scopri tutti gli incontri</a>
       </div>
