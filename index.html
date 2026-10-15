@@ -2187,5 +2187,56 @@
 }
 </style>
 
+
+<style>
+/* ===== V26: mobile sponsor breathing room + larger sponsor logos ===== */
+@media (max-width:700px){
+  /* More room under the last logo row so they don't feel cropped */
+  .theta-hero__support{
+    padding-bottom: 26px !important;
+  }
+
+  .theta-hero-support{
+    row-gap: 18px !important;
+  }
+
+  .theta-hero-support__group:nth-child(4),
+  .theta-hero-support__group:nth-child(5){
+    padding-bottom: 6px !important;
+  }
+
+  /* Sponsor row: all a bit larger, Boutique much larger */
+  .theta-hero-support__logos--sponsor{
+    gap: 12px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    height: 48px !important;
+    min-height: 48px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item img{
+    max-height: 45px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--cimmino img{
+    transform: scale(1.72) !important;
+    max-width: 92% !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--boutique img{
+    transform: scale(1.95) !important;
+    max-width: 104% !important;
+    max-height: 49px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--british img{
+    transform: scale(1.10) !important;
+    max-width: 98% !important;
+    max-height: 47px !important;
+  }
+}
+</style>
+
 </body>
 </html>
