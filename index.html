@@ -566,7 +566,7 @@
     .theta-hero__intro{margin:20px 0 0;font-size:17px;line-height:1.68;color:rgba(255,255,255,.82);max-width:600px;}
     .theta-hero__intro strong{color:#fff;}
     .theta-hero__actions{margin-top:28px;}
-    .theta-hero-support{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;}
+    .theta-hero-support{display:grid;grid-template-columns:1.15fr 1fr 1.15fr .8fr .8fr;gap:16px;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;}
     .theta-hero-support__group{display:flex;flex-direction:column;gap:12px;padding-right:12px;min-height:100%;}
     .theta-hero-support__group:not(:first-child){border-left:1px solid rgba(255,255,255,.10);padding-left:18px;}
     .theta-hero-support__label{font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.56);}
@@ -574,6 +574,9 @@
     .theta-hero-support__item{display:flex;align-items:center;justify-content:flex-start;min-height:42px;text-decoration:none;}
     .theta-hero-support__item img{display:block;width:auto;height:auto;max-height:42px;max-width:156px;object-fit:contain;filter:none;opacity:.96;}
     .theta-hero-support__logos--patrocinio .theta-hero-support__item img{max-height:48px;max-width:165px;}
+    .theta-hero-support__logos--sponsor{gap:10px 12px;}
+    .theta-hero-support__logos--sponsor .theta-hero-support__item{min-height:36px;}
+    .theta-hero-support__logos--sponsor .theta-hero-support__item img{max-height:36px;max-width:130px;}
 
     .theta-gif-band{position:relative;background:transparent;min-height:0;padding:0 0 18px;overflow:visible;}
     .theta-gif-band .theta-wrap{position:relative;}
@@ -594,8 +597,8 @@
     @media (max-width: 1100px){
       .theta-hero__main{grid-template-columns:1fr;gap:34px;}
       .theta-hero__right{max-width:700px;}
-      .theta-hero-support{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .theta-hero-support__group:nth-child(3){border-left:0;padding-left:0;}
+      .theta-hero-support{grid-template-columns:repeat(3,minmax(0,1fr));}
+      .theta-hero-support__group:nth-child(4){border-left:0;padding-left:0;}
       .theta-gif-band__shape{min-height:360px;clip-path:polygon(0 8%, 8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%);}
       .theta-gif-band__content{min-height:360px;}
     }
@@ -1123,6 +1126,14 @@
             <a class="theta-hero-support__item" href="https://www.daikin.it/it_IT/punti-vendita/se-ro-sas.html" target="_blank" rel="noopener"><img src="https://static.tildacdn.net/tild3061-6463-4330-a230-353861366635/Screenshot_2024-09-2.png" alt="Se.Ro. Sas"></a>
           </div>
         </div>
+        <div class="theta-hero-support__group theta-hero-support__group--sponsor">
+          <div class="theta-hero-support__label">Sponsor</div>
+          <div class="theta-hero-support__logos theta-hero-support__logos--sponsor">
+            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild6638-3566-4266-a336-303332643165/0WO5p000003zslyGAA_c.png" alt="Autoricambi Cimmino"></span>
+            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild3636-3239-4638-b065-353964393139/La_boutique-3.png" alt="La Boutique dell'Infisso"></span>
+            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild3331-3466-4132-b439-643939623437/image001.jpg" alt="British School"></span>
+          </div>
+        </div>
         <div class="theta-hero-support__group">
           <div class="theta-hero-support__label">Cultural Partner</div>
           <div class="theta-hero-support__logos">
@@ -1145,8 +1156,6 @@
         <h2>La giuria<br><em>si muove.</em></h2>
         <p>Le opere incontrano pubblico, associazioni e luoghi culturali della Campania.</p>
         <div class="theta-jury-compact__dates">
-          <div><span>01.10</span><strong>Giardino ARCI Casa del Popolo · Somma Vesuviana</strong></div>
-          <div><span>09.10</span><strong>Macass APS · Cava de’ Tirreni</strong></div>
           <div><span>13.10</span><strong>CrocoPie Studio · Aversa</strong></div>
           <div><span>14.10</span><strong>Foyer Cafè · Teatro Nuovo, Salerno</strong></div>
           <div class="theta-jury-compact__next"><span>23.10</span><strong>Radio ARCI Masaniello APS · Saviano <em>Prossimo incontro</em></strong></div>
@@ -1589,5 +1598,56 @@
   addEventListener('resize',onScroll,{passive:true});
 })();
 </script>
+
+<style>
+@media(max-width:700px){
+  .theta-hero-support{grid-template-columns:1fr 1fr !important;gap:16px 12px !important;align-items:start;}
+  .theta-hero-support__group{border:0 !important;padding:0 !important;min-width:0;}
+  .theta-hero-support__group:nth-child(1){order:1;}
+  .theta-hero-support__group:nth-child(2){order:2;}
+  .theta-hero-support__group:nth-child(3){
+    order:3;
+    grid-column:1 / -1;
+    padding-top:10px !important;
+    border-top:1px solid rgba(255,255,255,.10) !important;
+  }
+  .theta-hero-support__group:nth-child(4){
+    order:4;
+    padding-top:8px !important;
+    border-top:1px solid rgba(255,255,255,.10) !important;
+  }
+  .theta-hero-support__group:nth-child(5){
+    order:5;
+    padding-top:8px !important;
+    border-top:1px solid rgba(255,255,255,.10) !important;
+  }
+  .theta-hero-support__group:nth-child(4) .theta-hero-support__label,
+  .theta-hero-support__group:nth-child(5) .theta-hero-support__label{
+    font-size:8px;
+    letter-spacing:.14em;
+    color:rgba(255,255,255,.48);
+  }
+  .theta-hero-support__group:nth-child(4) .theta-hero-support__item img,
+  .theta-hero-support__group:nth-child(5) .theta-hero-support__item img{
+    max-height:28px !important;
+    max-width:120px !important;
+  }
+  .theta-hero-support__logos--sponsor{
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    width:100%;
+    gap:8px !important;
+  }
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    justify-content:center;
+    min-width:0;
+  }
+  .theta-hero-support__logos--sponsor .theta-hero-support__item img{
+    max-width:100% !important;
+    max-height:38px !important;
+  }
+}
+</style>
+
 </body>
 </html>
