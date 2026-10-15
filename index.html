@@ -2294,5 +2294,188 @@
 }
 </style>
 
+
+<style>
+/* ===== V29: sponsor trio rebalanced intelligently ===== */
+
+/* Base desktop/tablet sponsor row */
+.theta-hero-support__group--sponsor .theta-hero-support__logos--sponsor{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:12px !important;
+  align-items:center !important;
+  width:100%;
+}
+
+.theta-hero-support__group--sponsor .theta-hero-support__item{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:56px !important;
+  min-height:56px !important;
+  min-width:0 !important;
+  overflow:visible !important;
+}
+
+.theta-hero-support__group--sponsor .theta-hero-support__item img{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:46px !important;
+  object-fit:contain !important;
+  transform-origin:center center !important;
+  opacity:1 !important;
+}
+
+/* Optical balance: Boutique needs the strongest boost because the file has lots of inner empty space */
+.theta-hero-support__group--sponsor .theta-hero-support__item--cimmino img{
+  transform:scale(1.72) !important;
+  max-width:86% !important;
+}
+
+.theta-hero-support__group--sponsor .theta-hero-support__item--boutique img{
+  transform:scale(2.35) !important;
+  max-width:82% !important;
+  max-height:48px !important;
+}
+
+.theta-hero-support__group--sponsor .theta-hero-support__item--british img{
+  transform:scale(1.14) !important;
+  max-width:96% !important;
+  max-height:48px !important;
+}
+
+/* Slightly clearer sponsor label and tighter row */
+.theta-hero-support__group--sponsor .theta-hero-support__label{
+  color:rgba(255,255,255,.78) !important;
+}
+
+/* Mobile: bigger and cleaner, still same 3-column row */
+@media (max-width:700px){
+  .theta-hero-support__group--sponsor{
+    padding-top:12px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__logos--sponsor{
+    gap:10px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item{
+    height:50px !important;
+    min-height:50px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item img{
+    max-height:44px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--cimmino img{
+    transform:scale(1.82) !important;
+    max-width:88% !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--boutique img{
+    transform:scale(2.75) !important;
+    max-width:84% !important;
+    max-height:46px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--british img{
+    transform:scale(1.18) !important;
+    max-width:98% !important;
+    max-height:45px !important;
+  }
+
+  /* Slightly more space under the lower rows so nothing feels cut */
+  .theta-hero__support{
+    padding-bottom:28px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== V30: sponsor trio - Boutique trattata come file con molto spazio interno ===== */
+
+.theta-hero-support__group--sponsor .theta-hero-support__logos--sponsor{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+  align-items:center !important;
+}
+
+.theta-hero-support__group--sponsor .theta-hero-support__item{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:58px !important;
+  min-height:58px !important;
+  min-width:0 !important;
+}
+
+/* Cimmino */
+.theta-hero-support__group--sponsor .theta-hero-support__item--cimmino img{
+  transform:scale(1.9) !important;
+  max-width:86% !important;
+  max-height:48px !important;
+}
+
+/* Boutique: cella dedicata con crop ottico */
+.theta-hero-support__group--sponsor .theta-hero-support__item--boutique{
+  overflow:hidden !important;
+}
+.theta-hero-support__group--sponsor .theta-hero-support__item--boutique img{
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  width:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  transform:translate(-50%,-50%) scale(3.9) !important;
+  transform-origin:center center !important;
+  object-fit:contain !important;
+}
+
+/* British */
+.theta-hero-support__group--sponsor .theta-hero-support__item--british img{
+  transform:scale(1.18) !important;
+  max-width:96% !important;
+  max-height:49px !important;
+}
+
+@media(max-width:700px){
+  .theta-hero-support__group--sponsor .theta-hero-support__logos--sponsor{
+    gap:10px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item{
+    height:54px !important;
+    min-height:54px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--cimmino img{
+    transform:scale(2.0) !important;
+    max-width:88% !important;
+    max-height:46px !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--boutique img{
+    transform:translate(-50%,-50%) scale(4.8) !important;
+  }
+
+  .theta-hero-support__group--sponsor .theta-hero-support__item--british img{
+    transform:scale(1.22) !important;
+    max-width:98% !important;
+    max-height:47px !important;
+  }
+
+  .theta-hero__support{
+    padding-bottom:30px !important;
+  }
+}
+</style>
+
 </body>
 </html>
