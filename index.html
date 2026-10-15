@@ -1116,7 +1116,7 @@
           <div class="theta-hero-support__logos theta-hero-support__logos--patrocinio">
             <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild6334-3739-4536-a662-316431316637/IMG_6344.png" alt="Patrocinio Theta Film Festival"></span>
             <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild3362-6465-4133-a364-336634356333/logo_fm-rc.png" alt="Patrocinio Theta Film Festival"></span>
-            <a class="theta-hero-support__item" href="https://www.unina.it/" target="_blank" rel="noopener"><img src="https://static.tildacdn.net/tild3030-3835-4436-b239-666436343664/Federico_II_Universi.svg" alt="Università degli Studi di Napoli Federico II"></a>
+            <a class="theta-hero-support__item theta-hero-support__item--federico" href="https://www.unina.it/" target="_blank" rel="noopener"><img src="https://static.tildacdn.net/tild3030-3835-4436-b239-666436343664/Federico_II_Universi.svg" alt="Università degli Studi di Napoli Federico II"></a>
           </div>
         </div>
         <div class="theta-hero-support__group">
@@ -2067,6 +2067,123 @@
   .theta-hero-support__item--boutique img{transform:scale(2.55) !important;max-width:80% !important;}
   .theta-hero-support__item--british img{max-height:40px !important;}
   .theta-hero__support{padding-bottom:0 !important;margin-bottom:-14px !important;}
+}
+</style>
+
+
+<style>
+/* ===== V24: Federico II intero, senza taglio ===== */
+.theta-hero-support__group:first-child{
+  overflow:visible !important;
+  padding-bottom:10px !important;
+}
+
+.theta-hero-support__logos--patrocinio{
+  overflow:visible !important;
+  align-content:start !important;
+}
+
+.theta-hero-support__item--federico{
+  overflow:visible !important;
+  min-height:52px !important;
+  padding-bottom:3px !important;
+}
+
+.theta-hero-support__item--federico img{
+  display:block !important;
+  max-width:175px !important;
+  max-height:48px !important;
+  width:auto !important;
+  height:auto !important;
+  object-fit:contain !important;
+  transform:none !important;
+  transform-origin:left center !important;
+}
+
+/* Un minimo di respiro in fondo alla fascia, senza tornare al grande vuoto */
+.theta-hero__support{
+  padding-bottom:20px !important;
+}
+
+@media(max-width:700px){
+  .theta-hero-support__group:first-child{
+    padding-bottom:4px !important;
+  }
+
+  .theta-hero-support__item--federico{
+    min-height:38px !important;
+    padding-bottom:2px !important;
+  }
+
+  .theta-hero-support__item--federico img{
+    max-width:108px !important;
+    max-height:34px !important;
+  }
+
+  .theta-hero__support{
+    padding-bottom:13px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== V25: mobile main sponsor spacing + boutique enlargement ===== */
+
+/* Desktop / tablet: Boutique leggermente più presente */
+.theta-hero-support__item--boutique img{
+  transform: scale(1.68) !important;
+  max-width: 96% !important;
+  max-height: 52px !important;
+}
+
+/* Compatta meglio il blocco sponsor principale su desktop senza stringere troppo */
+.theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+  gap: 14px 18px !important;
+}
+
+@media (max-width:700px){
+  /* I due main sponsor meno vicini */
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:14px !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+    min-height:auto !important;
+    height:auto !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item--mc{
+    margin-bottom:2px !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+    max-height:41px !important;
+    max-width:116px !important;
+  }
+
+  .theta-hero-support__item--mc img{
+    max-height:46px !important;
+    max-width:126px !important;
+  }
+
+  /* Boutique dell'Infisso più ampia, senza toccare gli altri */
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--boutique img{
+    transform: scale(1.72) !important;
+    max-width: 96% !important;
+    max-height: 46px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--cimmino img{
+    transform: scale(1.58) !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item--british img{
+    transform: scale(1.00) !important;
+  }
 }
 </style>
 
