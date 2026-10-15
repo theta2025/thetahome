@@ -1982,5 +1982,93 @@
 }
 </style>
 
+
+<style>
+/* ===== V23: rifinitura finale fascia partner/sponsor ===== */
+/* Main Sponsor: blocco più serrato e leggibile */
+.theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+  gap:2px !important;
+}
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  width:auto !important;
+  min-height:0 !important;
+  line-height:0 !important;
+}
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+  display:block !important;
+  margin:0 !important;
+}
+.theta-hero-support__item--mc{margin-bottom:-2px !important;}
+.theta-hero-support__item--mc img{max-height:58px !important;max-width:190px !important;}
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item:not(.theta-hero-support__item--mc) img{
+  max-height:48px !important;
+  max-width:188px !important;
+}
+
+/* Sponsor secondari: equilibrio ottico specifico per i 3 file */
+.theta-hero-support__logos--sponsor{
+  grid-template-columns:1fr 1fr 1fr !important;
+  gap:6px !important;
+}
+.theta-hero-support__logos--sponsor .theta-hero-support__item{
+  height:46px !important;
+  min-height:46px !important;
+  overflow:visible !important;
+}
+.theta-hero-support__item--cimmino img{
+  transform:scale(1.70) !important;
+  max-width:88% !important;
+}
+.theta-hero-support__item--boutique img{
+  transform:scale(2.45) !important;
+  max-width:82% !important;
+}
+.theta-hero-support__item--british img{
+  transform:scale(1.02) !important;
+  max-width:100% !important;
+  max-height:44px !important;
+}
+
+/* Fascia più bassa: meno aria prima delle news */
+.theta-hero__support{
+  padding-top:16px !important;
+  padding-bottom:0 !important;
+  margin-bottom:-26px !important;
+}
+.theta-hero-support{
+  padding-bottom:0 !important;
+  margin-bottom:0 !important;
+}
+.theta-hero-support__group{padding-bottom:0 !important;margin-bottom:0 !important;}
+
+@media(min-width:701px){
+  .theta-hero-support__group:nth-child(2){transform:translateY(-2px);}
+}
+
+@media(max-width:700px){
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+    flex-direction:column !important;
+    gap:1px !important;
+  }
+  .theta-hero-support__item--mc img{max-height:46px !important;max-width:120px !important;}
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item:not(.theta-hero-support__item--mc) img{
+    max-height:38px !important;
+    max-width:118px !important;
+  }
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{height:44px !important;min-height:44px !important;}
+  .theta-hero-support__item--cimmino img{transform:scale(1.72) !important;max-width:84% !important;}
+  .theta-hero-support__item--boutique img{transform:scale(2.55) !important;max-width:80% !important;}
+  .theta-hero-support__item--british img{max-height:40px !important;}
+  .theta-hero__support{padding-bottom:0 !important;margin-bottom:-14px !important;}
+}
+</style>
+
 </body>
 </html>
