@@ -1129,9 +1129,9 @@
         <div class="theta-hero-support__group theta-hero-support__group--sponsor">
           <div class="theta-hero-support__label">Sponsor</div>
           <div class="theta-hero-support__logos theta-hero-support__logos--sponsor">
-            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild6638-3566-4266-a336-303332643165/0WO5p000003zslyGAA_c.png" alt="Autoricambi Cimmino"></span>
-            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild3636-3239-4638-b065-353964393139/La_boutique-3.png" alt="La Boutique dell'Infisso"></span>
-            <span class="theta-hero-support__item"><img src="https://static.tildacdn.net/tild3331-3466-4132-b439-643939623437/image001.jpg" alt="British School"></span>
+            <span class="theta-hero-support__item theta-hero-support__item--cimmino"><img src="https://static.tildacdn.net/tild6638-3566-4266-a336-303332643165/0WO5p000003zslyGAA_c.png" alt="Autoricambi Cimmino"></span>
+            <span class="theta-hero-support__item theta-hero-support__item--boutique"><img src="https://static.tildacdn.net/tild3636-3239-4638-b065-353964393139/La_boutique-3.png" alt="La Boutique dell'Infisso"></span>
+            <span class="theta-hero-support__item theta-hero-support__item--british"><img src="https://static.tildacdn.net/tild3331-3466-4132-b439-643939623437/image001.jpg" alt="British School"></span>
           </div>
         </div>
         <div class="theta-hero-support__group">
@@ -1645,6 +1645,213 @@
   .theta-hero-support__logos--sponsor .theta-hero-support__item img{
     max-width:100% !important;
     max-height:38px !important;
+  }
+}
+</style>
+
+
+<style>
+/* ===== V21: HERO pulita + sponsor riequilibrati ===== */
+
+/* Rimuove completamente il quadrettato della hero */
+.theta-hero:before{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+}
+
+/* Gerarchia più forte: MAIN SPONSOR deve emergere più degli sponsor secondari */
+.theta-hero-support{
+  grid-template-columns:1.05fr 1.42fr 1.22fr .72fr .72fr !important;
+  gap:14px !important;
+}
+
+.theta-hero-support__group:nth-child(2){
+  position:relative;
+  padding:14px 16px 16px !important;
+  margin-top:-8px;
+  border:1px solid rgba(255,255,255,.20) !important;
+  border-top:3px solid var(--theta-orange) !important;
+  border-radius:16px;
+  background:rgba(255,255,255,.075);
+  box-shadow:0 14px 34px rgba(15,17,54,.13);
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__label{
+  color:#fff !important;
+  font-size:11px !important;
+  letter-spacing:.20em !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+  gap:12px 18px !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+  min-height:58px !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+  max-height:56px !important;
+  max-width:190px !important;
+  opacity:1 !important;
+}
+
+.theta-hero-support__item--mc img{
+  max-height:64px !important;
+  max-width:210px !important;
+}
+
+/* Sponsor secondari: tre loghi visivamente equivalenti */
+.theta-hero-support__group--sponsor{
+  padding-left:16px !important;
+}
+
+.theta-hero-support__logos--sponsor{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:8px !important;
+  width:100%;
+  align-items:center;
+}
+
+.theta-hero-support__logos--sponsor .theta-hero-support__item{
+  min-width:0;
+  width:100%;
+  height:58px;
+  min-height:58px !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:visible;
+}
+
+.theta-hero-support__logos--sponsor .theta-hero-support__item img{
+  width:auto !important;
+  height:auto !important;
+  max-width:100% !important;
+  max-height:48px !important;
+  object-fit:contain !important;
+  transform-origin:center center;
+  opacity:1 !important;
+}
+
+/* I due file hanno molta aria interna: compensiamo visivamente */
+.theta-hero-support__item--cimmino img{
+  transform:scale(1.55) !important;
+  max-width:92% !important;
+}
+
+.theta-hero-support__item--boutique img{
+  transform:scale(1.48) !important;
+  max-width:94% !important;
+}
+
+.theta-hero-support__item--british img{
+  transform:scale(1.04) !important;
+  max-height:50px !important;
+}
+
+/* Manteniamo sponsor secondari un gradino sotto i main */
+.theta-hero-support__group--sponsor .theta-hero-support__label{
+  color:rgba(255,255,255,.68) !important;
+}
+
+/* Tablet orizzontale: mantieni gerarchia senza far collassare la fascia */
+@media (min-width:701px) and (max-width:1180px){
+  .theta-hero-support{
+    grid-template-columns:1fr 1.35fr 1.18fr .72fr .72fr !important;
+    gap:10px !important;
+  }
+  .theta-hero-support__group:nth-child(2){
+    margin-top:-5px;
+    padding:12px 12px 14px !important;
+  }
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+    max-width:155px !important;
+    max-height:50px !important;
+  }
+  .theta-hero-support__item--mc img{
+    max-width:175px !important;
+    max-height:57px !important;
+  }
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    height:52px;
+    min-height:52px !important;
+  }
+  .theta-hero-support__item--cimmino img{transform:scale(1.48) !important;}
+  .theta-hero-support__item--boutique img{transform:scale(1.42) !important;}
+}
+
+/* Mobile: Main Sponsor ben visibile; sponsor secondari restano tre in riga */
+@media(max-width:700px){
+  .theta-hero-support{
+    grid-template-columns:1fr 1fr !important;
+    gap:15px 12px !important;
+  }
+
+  .theta-hero-support__group:nth-child(2){
+    margin-top:0 !important;
+    padding:10px 10px 12px !important;
+    border-top:3px solid var(--theta-orange) !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__label{
+    font-size:9px !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+    display:flex !important;
+    gap:8px !important;
+    justify-content:flex-start;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+    min-height:44px !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+    max-height:44px !important;
+    max-width:118px !important;
+  }
+
+  .theta-hero-support__item--mc img{
+    max-height:50px !important;
+    max-width:132px !important;
+  }
+
+  .theta-hero-support__group--sponsor{
+    grid-column:1 / -1 !important;
+    padding-top:11px !important;
+  }
+
+  .theta-hero-support__logos--sponsor{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:10px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    height:52px;
+    min-height:52px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item img{
+    max-height:42px !important;
+  }
+
+  .theta-hero-support__item--cimmino img{
+    transform:scale(1.62) !important;
+    max-width:88% !important;
+  }
+
+  .theta-hero-support__item--boutique img{
+    transform:scale(1.54) !important;
+    max-width:90% !important;
+  }
+
+  .theta-hero-support__item--british img{
+    transform:scale(1.00) !important;
+    max-height:44px !important;
   }
 }
 </style>
