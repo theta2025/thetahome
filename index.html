@@ -2238,5 +2238,61 @@
 }
 </style>
 
+
+<style>
+/* ===== V27: sponsor mobile final balance ===== */
+@media (max-width:700px){
+  .theta-hero-support__logos--sponsor{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:10px !important;
+    align-items:center !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    height:56px !important;
+    min-height:56px !important;
+    overflow:visible !important;
+  }
+
+  .theta-hero-support__item--cimmino img{
+    transform:scale(1.82) !important;
+    max-width:94% !important;
+    max-height:48px !important;
+  }
+
+  .theta-hero-support__item--boutique img{
+    transform:scale(2.55) !important;
+    max-width:118% !important;
+    max-height:55px !important;
+  }
+
+  .theta-hero-support__item--british img{
+    transform:scale(1.18) !important;
+    max-width:100% !important;
+    max-height:49px !important;
+  }
+
+  /* un po' più aria sotto l'ultima riga */
+  .theta-hero__support{
+    padding-bottom:32px !important;
+  }
+}
+
+/* Desktop: Boutique più presente senza cambiare la griglia */
+@media (min-width:701px){
+  .theta-hero-support__item--boutique img{
+    transform:scale(1.95) !important;
+    max-width:106% !important;
+    max-height:54px !important;
+  }
+  .theta-hero-support__item--cimmino img{
+    transform:scale(1.62) !important;
+  }
+  .theta-hero-support__item--british img{
+    transform:scale(1.08) !important;
+  }
+}
+</style>
+
 </body>
 </html>
