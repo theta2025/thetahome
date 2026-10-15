@@ -1856,5 +1856,131 @@
 }
 </style>
 
+
+<style>
+/* ===== V22: fascia sponsor più compatta e senza riquadri vuoti ===== */
+
+/* Nessun box speciale sui MAIN SPONSOR */
+.theta-hero-support__group:nth-child(2){
+  margin-top:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+/* Manteniamo solo una gerarchia tramite dimensione dei loghi */
+.theta-hero-support__group:nth-child(2) .theta-hero-support__label{
+  color:rgba(255,255,255,.82) !important;
+  font-size:10px !important;
+  letter-spacing:.18em !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__logos{
+  gap:10px 16px !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+  min-height:auto !important;
+  height:auto !important;
+}
+
+.theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+  max-height:54px !important;
+  max-width:180px !important;
+}
+
+.theta-hero-support__item--mc img{
+  max-height:60px !important;
+  max-width:200px !important;
+}
+
+/* Elimina il grande vuoto sotto i loghi */
+.theta-hero-support{
+  align-items:start !important;
+}
+
+.theta-hero-support__group{
+  min-height:0 !important;
+  height:auto !important;
+  align-self:start !important;
+}
+
+.theta-hero-support__logos{
+  align-content:start !important;
+}
+
+.theta-hero-support__item{
+  min-height:0 !important;
+  height:auto !important;
+  padding-top:0 !important;
+  padding-bottom:0 !important;
+}
+
+/* Sponsor secondari più compatti */
+.theta-hero-support__group--sponsor{
+  padding-left:0 !important;
+}
+
+.theta-hero-support__logos--sponsor{
+  gap:8px !important;
+  align-items:center !important;
+}
+
+.theta-hero-support__logos--sponsor .theta-hero-support__item{
+  height:44px !important;
+  min-height:44px !important;
+}
+
+.theta-hero-support__logos--sponsor .theta-hero-support__item img{
+  max-height:40px !important;
+}
+
+/* Avvicina la fascia al contenuto sopra e riduce il fondo */
+.theta-hero__support{
+  padding-top:18px !important;
+  padding-bottom:16px !important;
+}
+
+.theta-hero{
+  padding-bottom:0 !important;
+}
+
+/* Mobile: stessa logica, niente contenitori alti */
+@media(max-width:700px){
+  .theta-hero-support__group:nth-child(2){
+    padding:0 !important;
+    border:0 !important;
+    background:transparent !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item{
+    min-height:0 !important;
+    height:auto !important;
+  }
+
+  .theta-hero-support__group:nth-child(2) .theta-hero-support__item img{
+    max-height:42px !important;
+    max-width:115px !important;
+  }
+
+  .theta-hero-support__item--mc img{
+    max-height:48px !important;
+    max-width:128px !important;
+  }
+
+  .theta-hero-support__logos--sponsor .theta-hero-support__item{
+    height:42px !important;
+    min-height:42px !important;
+  }
+
+  .theta-hero__support{
+    padding-top:14px !important;
+    padding-bottom:10px !important;
+  }
+}
+</style>
+
 </body>
 </html>
