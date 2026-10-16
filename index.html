@@ -4011,5 +4011,413 @@
 })();
 </script>
 
+
+<style>
+/* ===== V49: McDonald's first-click burger animation ===== */
+#theta-mc-burger-burst{
+  position:fixed;
+  left:0;
+  top:0;
+  width:0;
+  height:0;
+  pointer-events:none;
+  z-index:9999;
+  opacity:0;
+}
+
+#theta-mc-burger-burst.is-active{
+  opacity:1;
+}
+
+#theta-mc-burger-burst .theta-burger-stage{
+  position:fixed;
+  left:var(--theta-burger-x, 50vw);
+  top:var(--theta-burger-y, 50vh);
+  width:120px;
+  height:120px;
+  transform:translate(-50%,-50%);
+}
+
+#theta-mc-burger-burst .theta-burger,
+#theta-mc-burger-burst .theta-burger-shadow,
+#theta-mc-burger-burst .theta-burger-spark{
+  position:absolute;
+}
+
+#theta-mc-burger-burst .theta-burger-shadow{
+  left:50%;
+  bottom:16px;
+  width:72px;
+  height:14px;
+  border-radius:50%;
+  background:rgba(5,5,18,.18);
+  filter:blur(8px);
+  transform:translateX(-50%);
+  animation:thetaBurgerShadow 1.05s ease forwards;
+}
+
+#theta-mc-burger-burst .theta-burger{
+  left:50%;
+  top:50%;
+  width:84px;
+  height:84px;
+  transform:translate(-50%,-50%);
+  animation:thetaBurgerFade 1.05s ease forwards;
+}
+
+#theta-mc-burger-burst .bun-top,
+#theta-mc-burger-burst .bun-bottom,
+#theta-mc-burger-burst .cheese,
+#theta-mc-burger-burst .patty,
+#theta-mc-burger-burst .lettuce{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+#theta-mc-burger-burst .bun-top{
+  top:18px;
+  width:72px;
+  height:26px;
+  border-radius:38px 38px 18px 18px;
+  background:linear-gradient(180deg,#f1c36d 0%,#e2a84f 100%);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.35);
+  animation:thetaBunTop 1.05s cubic-bezier(.2,.7,.2,1) forwards;
+}
+#theta-mc-burger-burst .bun-top:before{
+  content:"";
+  position:absolute;
+  left:10px; right:10px; top:7px; height:6px;
+  background:radial-gradient(circle, rgba(255,248,220,.95) 0 1.5px, transparent 2px) 0 0/14px 8px repeat-x;
+  opacity:.8;
+}
+
+#theta-mc-burger-burst .lettuce{
+  top:41px;
+  width:68px;
+  height:8px;
+  border-radius:10px;
+  background:linear-gradient(180deg,#8dd957,#4bb543);
+  animation:thetaLayerLettuce 1.05s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+#theta-mc-burger-burst .cheese{
+  top:48px;
+  width:60px;
+  height:7px;
+  border-radius:8px;
+  background:#ffcb3d;
+  animation:thetaLayerCheese 1.05s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+#theta-mc-burger-burst .patty{
+  top:55px;
+  width:64px;
+  height:12px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#64331d 0%,#3a1e12 100%);
+  animation:thetaLayerPatty 1.05s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+#theta-mc-burger-burst .bun-bottom{
+  top:68px;
+  width:70px;
+  height:15px;
+  border-radius:10px 10px 18px 18px;
+  background:linear-gradient(180deg,#e0a54b 0%,#cf8b33 100%);
+  animation:thetaBunBottom 1.05s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+#theta-mc-burger-burst .theta-burger-spark{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.95);
+  filter:blur(.4px);
+  animation:thetaSpark 1.05s ease forwards;
+}
+#theta-mc-burger-burst .s1{left:24px; top:26px; animation-delay:.02s;}
+#theta-mc-burger-burst .s2{right:22px; top:30px; animation-delay:.08s;}
+#theta-mc-burger-burst .s3{left:22px; bottom:24px; animation-delay:.05s;}
+#theta-mc-burger-burst .s4{right:20px; bottom:26px; animation-delay:.12s;}
+
+@keyframes thetaBurgerFade{
+  0%{opacity:0; transform:translate(-50%,-46%) scale(.68);} 
+  14%{opacity:1; transform:translate(-50%,-50%) scale(1.02);} 
+  72%{opacity:1; transform:translate(-50%,-50%) scale(1);} 
+  100%{opacity:0; transform:translate(-50%,-58%) scale(.9);} 
+}
+@keyframes thetaBurgerShadow{
+  0%{opacity:0; transform:translateX(-50%) scale(.55);} 
+  16%{opacity:1; transform:translateX(-50%) scale(1);} 
+  74%{opacity:.9; transform:translateX(-50%) scale(1.04);} 
+  100%{opacity:0; transform:translateX(-50%) scale(.8);} 
+}
+@keyframes thetaBunTop{
+  0%,20%{transform:translateX(-50%) translateY(0);} 
+  42%{transform:translateX(-50%) translateY(-12px) rotate(-2deg);} 
+  62%{transform:translateX(-50%) translateY(-5px);} 
+  100%{transform:translateX(-50%) translateY(0);} 
+}
+@keyframes thetaLayerLettuce{
+  0%,20%{transform:translateX(-50%) translateY(0);} 
+  42%{transform:translateX(-50%) translateY(-5px) scaleX(1.02);} 
+  100%{transform:translateX(-50%) translateY(0);} 
+}
+@keyframes thetaLayerCheese{
+  0%,20%{transform:translateX(-50%) translateY(0);} 
+  42%{transform:translateX(-50%) translateY(3px) rotate(1deg);} 
+  100%{transform:translateX(-50%) translateY(0);} 
+}
+@keyframes thetaLayerPatty{
+  0%,20%{transform:translateX(-50%) translateY(0);} 
+  42%{transform:translateX(-50%) translateY(7px) scaleX(.98);} 
+  100%{transform:translateX(-50%) translateY(0);} 
+}
+@keyframes thetaBunBottom{
+  0%,20%{transform:translateX(-50%) translateY(0);} 
+  42%{transform:translateX(-50%) translateY(10px) rotate(1deg);} 
+  100%{transform:translateX(-50%) translateY(0);} 
+}
+@keyframes thetaSpark{
+  0%{opacity:0; transform:scale(.3);} 
+  22%{opacity:1; transform:scale(1);} 
+  56%{opacity:.85; transform:translateY(-7px) scale(1.1);} 
+  100%{opacity:0; transform:translateY(-14px) scale(.3);} 
+}
+
+@media (max-width:700px){
+  #theta-mc-burger-burst .theta-burger-stage{width:108px; height:108px;}
+  #theta-mc-burger-burst .theta-burger{width:76px; height:76px;}
+  #theta-mc-burger-burst .bun-top{width:66px; height:24px;}
+  #theta-mc-burger-burst .lettuce{width:62px; top:39px;}
+  #theta-mc-burger-burst .cheese{width:55px; top:46px;}
+  #theta-mc-burger-burst .patty{width:58px; top:53px;}
+  #theta-mc-burger-burst .bun-bottom{width:64px; top:65px;}
+}
+</style>
+
+<div id="theta-mc-burger-burst" aria-hidden="true">
+  <div class="theta-burger-stage">
+    <div class="theta-burger-shadow"></div>
+    <div class="theta-burger">
+      <span class="bun-top"></span>
+      <span class="lettuce"></span>
+      <span class="cheese"></span>
+      <span class="patty"></span>
+      <span class="bun-bottom"></span>
+    </div>
+    <span class="theta-burger-spark s1"></span>
+    <span class="theta-burger-spark s2"></span>
+    <span class="theta-burger-spark s3"></span>
+    <span class="theta-burger-spark s4"></span>
+  </div>
+</div>
+
+<script>
+/* ===== V49: play burger animation only on the first McDonald's click ===== */
+(function(){
+  var playedKey = 'thetaMcBurgerPlayed';
+
+  function getBurst(){
+    return document.getElementById('theta-mc-burger-burst');
+  }
+
+  function playMcBurger(anchor){
+    var burst = getBurst();
+    if(!burst || !anchor) return;
+    var rect = anchor.getBoundingClientRect();
+    var x = rect.left + (rect.width / 2);
+    var y = rect.top + (rect.height / 2);
+    burst.style.setProperty('--theta-burger-x', x + 'px');
+    burst.style.setProperty('--theta-burger-y', y + 'px');
+    burst.classList.remove('is-active');
+    void burst.offsetWidth;
+    burst.classList.add('is-active');
+    window.setTimeout(function(){
+      burst.classList.remove('is-active');
+    }, 1080);
+  }
+
+  document.addEventListener('click', function(e){
+    var mc = e.target.closest('.theta-hero-support__item--mc');
+    if(!mc) return;
+    if(sessionStorage.getItem(playedKey) === '1') return;
+    sessionStorage.setItem(playedKey, '1');
+    e.preventDefault();
+    playMcBurger(mc);
+  }, false);
+})();
+</script>
+
+
+<script>
+/* ===== V50: desktop first-hover + mobile first-click burger animation ===== */
+(function(){
+  var playedKey = 'thetaMcBurgerPlayed';
+
+  function isDesktopHover(){
+    return window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  }
+
+  function getBurst(){
+    return document.getElementById('theta-mc-burger-burst');
+  }
+
+  function playMcBurger(anchor){
+    var burst = getBurst();
+    if(!burst || !anchor) return;
+
+    var rect = anchor.getBoundingClientRect();
+    var x = rect.left + (rect.width / 2);
+    var y = rect.top + (rect.height / 2);
+
+    burst.style.setProperty('--theta-burger-x', x + 'px');
+    burst.style.setProperty('--theta-burger-y', y + 'px');
+
+    burst.classList.remove('is-active');
+    void burst.offsetWidth;
+    burst.classList.add('is-active');
+
+    window.setTimeout(function(){
+      burst.classList.remove('is-active');
+    }, 1080);
+  }
+
+  function playOnce(anchor){
+    if(sessionStorage.getItem(playedKey) === '1') return false;
+    sessionStorage.setItem(playedKey, '1');
+    playMcBurger(anchor);
+    return true;
+  }
+
+  /* Desktop: first hover only */
+  document.addEventListener('mouseover', function(e){
+    if(!isDesktopHover()) return;
+
+    var mc = e.target.closest('.theta-hero-support__item--mc');
+    if(!mc) return;
+
+    var from = e.relatedTarget;
+    if(from && mc.contains(from)) return;
+
+    playOnce(mc);
+  }, false);
+
+  /* Mobile/touch: first click only */
+  document.addEventListener('click', function(e){
+    if(isDesktopHover()) return;
+
+    var mc = e.target.closest('.theta-hero-support__item--mc');
+    if(!mc) return;
+
+    if(playOnce(mc)){
+      e.preventDefault();
+    }
+  }, false);
+})();
+</script>
+
+
+<style>
+/* ===== V51: burger animation visibility fix ===== */
+#theta-mc-burger-burst{
+  z-index:2147483000 !important;
+}
+#theta-mc-burger-burst .theta-burger-stage{
+  width:160px !important;
+  height:160px !important;
+  transform:translate(-50%,-72%) !important;
+}
+#theta-mc-burger-burst .theta-burger{
+  width:110px !important;
+  height:110px !important;
+}
+#theta-mc-burger-burst .bun-top{
+  top:19px !important;
+  width:94px !important;
+  height:34px !important;
+}
+#theta-mc-burger-burst .lettuce{
+  top:51px !important;
+  width:88px !important;
+  height:10px !important;
+}
+#theta-mc-burger-burst .cheese{
+  top:60px !important;
+  width:80px !important;
+  height:9px !important;
+}
+#theta-mc-burger-burst .patty{
+  top:70px !important;
+  width:84px !important;
+  height:16px !important;
+}
+#theta-mc-burger-burst .bun-bottom{
+  top:87px !important;
+  width:90px !important;
+  height:20px !important;
+}
+</style>
+
+<script>
+/* ===== V51: reliable first hover / first tap ===== */
+(function(){
+  /* Previous versions used sessionStorage, so after one test the animation
+     stayed disabled even after a normal page refresh. Reset it on every load. */
+  try { sessionStorage.removeItem('thetaMcBurgerPlayed'); } catch(e) {}
+
+  var playedThisPage = false;
+
+  function canHover(){
+    return window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  }
+
+  function play(anchor){
+    if(playedThisPage || !anchor) return;
+    playedThisPage = true;
+
+    /* Keep legacy handlers from firing a second time. */
+    try { sessionStorage.setItem('thetaMcBurgerPlayed','1'); } catch(e) {}
+
+    var burst = document.getElementById('theta-mc-burger-burst');
+    if(!burst) return;
+
+    var r = anchor.getBoundingClientRect();
+    burst.style.setProperty('--theta-burger-x', (r.left + r.width/2) + 'px');
+    burst.style.setProperty('--theta-burger-y', (r.top + r.height/2) + 'px');
+
+    burst.classList.remove('is-active');
+    void burst.offsetWidth;
+    burst.classList.add('is-active');
+
+    setTimeout(function(){
+      burst.classList.remove('is-active');
+    }, 1150);
+  }
+
+  document.addEventListener('pointerenter', function(e){
+    if(!canHover()) return;
+    var mc = e.target.closest && e.target.closest('.theta-hero-support__item--mc');
+    if(mc) play(mc);
+  }, true);
+
+  /* mouseover fallback for browsers/Tilda wrappers */
+  document.addEventListener('mouseover', function(e){
+    if(!canHover()) return;
+    var mc = e.target.closest && e.target.closest('.theta-hero-support__item--mc');
+    if(!mc) return;
+    if(e.relatedTarget && mc.contains(e.relatedTarget)) return;
+    play(mc);
+  }, true);
+
+  document.addEventListener('touchstart', function(e){
+    if(canHover()) return;
+    var mc = e.target.closest && e.target.closest('.theta-hero-support__item--mc');
+    if(mc) play(mc);
+  }, {capture:true, passive:true});
+})();
+</script>
+
 </body>
 </html>
