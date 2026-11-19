@@ -8,7 +8,7 @@
 <meta name="description" content="Programma della 5ª edizione del Theta Short Film Festival, 26 e 27 novembre.">
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#C5D3E8}
-iframe{display:block;width:100%;height:100dvh;border:0;background:#C5D3E8}
+iframe{display:block;width:100%;height:100dvh;border:0;background:#C5D3E8;visibility:hidden}
 </style>
 </head>
 <body>
@@ -47,6 +47,14 @@ try {
  :root{--blue:#333788!important;--blue2:#4d65AA!important;--paper:#C5D3E8!important;--red:#D73527!important;--orange:#D17715!important;--ink:#333788!important;--white:#C5D3E8!important}
  html,body{background:#C5D3E8!important;color:#333788!important}
  .hero{background:#C5D3E8!important;min-height:590px!important}
+ /* ThetArte: solo logo su sfondo scuro per il contrasto */
+ .art-opening{background:#333788!important;color:#C5D3E8!important}
+ .art-opening .eyebrow,.art-opening p{color:#C5D3E8!important}
+ .art-opening .opening-times{background:#C5D3E8!important;color:#333788!important;border-color:#4d65AA!important}
+ .art-opening .opening-line{border-bottom-color:#4d65AA!important}
+ .art-opening .opening-clock{color:#D73527!important}
+ #theta-official-thetarte-logo{width:min(380px,82vw)!important;height:auto!important;max-width:100%!important;display:block!important;margin:12px 0 28px!important;object-fit:contain!important}
+
  .hero .shell{padding-top:130px!important;padding-bottom:70px!important}
  .hero h1{font-family:'Mostra Nuova AltD W00 Bold',Arial,sans-serif!important;font-size:clamp(47px,7.3vw,110px)!important;line-height:1.02!important;letter-spacing:-.073em!important;margin:23px 0 27px!important;max-width:930px!important;overflow-wrap:normal!important;word-break:normal!important}
  .hero h1 span{display:block!important;font-size:.63em!important;letter-spacing:-.06em!important;line-height:1.2!important;color:#D73527!important;margin-top:8px!important}
@@ -124,9 +132,9 @@ try {
    img.id='theta-official-thetarte-logo';
    img.src=thetarteLogo;
    img.alt='ThetArte';
-   img.loading='lazy';
+   img.loading='eager';
    img.style.cssText='display:block;width:min(310px,72vw);height:auto;object-fit:contain;margin:0 0 22px;max-width:100%;';
-   artHeading.insertAdjacentElement('afterend',img);
+   artHeading.replaceWith(img);
  }
 
  // Elimina completamente i testi e i link "Scopri di più" nelle schede.
@@ -158,6 +166,9 @@ try {
 
 } catch(err) {
  console.error('Aggiornamento grafico non applicato', err);
+} finally {
+ // Svela la pagina solo dopo tutte le modifiche: niente lampo della versione vecchia.
+ requestAnimationFrame(() => { frame.style.visibility='visible'; });
 }
 });
 </script>
