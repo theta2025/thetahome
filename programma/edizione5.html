@@ -3,36 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#333b8f">
-<title>PROGRAMMA DELLA 5ª EDIZIONE | Theta Film Festival</title>
-<meta name="description" content="Programma della 5ª edizione del Theta Film Festival. 26 e 27 novembre: categorie, ospiti e prenotazioni.">
+<meta name="theme-color" content="#C5D3E8">
+<title>PROGRAMMA DELLA 5ª EDIZIONE | Theta Short Film Festival</title>
+<meta name="description" content="Programma della 5ª edizione del Theta Short Film Festival, 26 e 27 novembre.">
 <style>
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#333b8f}
-iframe{display:block;width:100%;height:100%;height:100dvh;border:0;background:#333b8f}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#C5D3E8}
+iframe{display:block;width:100%;height:100dvh;border:0;background:#C5D3E8}
 </style>
 </head>
 <body>
-<iframe id="programma" src="index.html" title="Programma della 5ª edizione del Theta Film Festival" loading="eager"></iframe>
+<iframe id="programma" src="index.html" title="Programma della 5ª edizione del Theta Short Film Festival" loading="eager"></iframe>
 <script>
 const frame=document.getElementById('programma');
-function stella(colore){
-  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path fill="${colore}" d="M60 2 72 42 112 28 88 60 117 83 76 80 60 119 44 80 3 83 32 60 8 28 48 42Z"/><path fill="white" opacity=".12" d="M60 2 72 42 112 28 88 60 60 60Z"/></svg>`;
-  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+const palette={blue:'#333788',blue2:'#4d65AA',light:'#C5D3E8',red:'#D73527',orange:'#D17715'};
+function star(col){
+const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path fill="'+col+'" d="M60 2 72 42 112 28 88 60 117 83 76 80 60 119 44 80 3 83 32 60 8 28 48 42Z"/></svg>';
+return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
 }
 frame.addEventListener('load',()=>{
-  try{
-    const d=frame.contentDocument;
-    d.title='PROGRAMMA DELLA 5ª EDIZIONE | Theta Film Festival';
-    const h=d.querySelector('.hero h1');
-    if(h){h.innerHTML='PROGRAMMA<br><span>DELLA 5ª</span><br>EDIZIONE';}
-    const kicker=d.querySelector('.hero .kicker');
-    if(kicker) kicker.textContent='THETA SHORT FILM FESTIVAL · 26 E 27 NOVEMBRE';
-    const colori=['#e94235','#53caff','#ffd634'];
-    d.querySelectorAll('.star').forEach((img,i)=>{img.src=stella(colori[i%3]);img.style.mixBlendMode='normal';});
-    const css=d.createElement('style');
-    css.textContent='.hero h1{font-size:clamp(40px,7vw,96px)!important;line-height:1.06!important;overflow-wrap:normal;max-width:900px}.hero h1 span{color:#ffd634!important}.star{filter:drop-shadow(0 7px 16px rgba(0,0,0,.12))!important}@media(max-width:620px){.hero h1{font-size:clamp(38px,9vw,58px)!important}.star-a{width:112px!important}}';
-    d.head.appendChild(css);
-  }catch(e){console.error('Impossibile applicare gli aggiornamenti al programma',e);}
+try {
+ const d=frame.contentDocument;
+ d.title='PROGRAMMA DELLA 5ª EDIZIONE | Theta Short Film Festival';
+ const hero=d.querySelector('.hero h1');
+ if(hero){hero.innerHTML='PROGRAMMA<span>DELLA 5ª EDIZIONE</span>';}
+ const kicker=d.querySelector('.hero .kicker');
+ if(kicker) kicker.textContent='THETA SHORT FILM FESTIVAL · 26 E 27 NOVEMBRE';
+ const colors=[palette.red,palette.blue2,palette.orange];
+ d.querySelectorAll('.star').forEach((img,i)=>{
+  img.src=star(colors[i%3]);img.style.mixBlendMode='normal';
+  img.style.background='transparent';img.style.opacity='1';
+ });
+ const css=d.createElement('style');
+ css.textContent=`
+ :root{--blue:#333788!important;--red:#D73527!important;--orange:#D17715!important;--paper:#C5D3E8!important;--ink:#333788!important;--white:#C5D3E8!important}
+ html,body{background:#C5D3E8!important;color:#333788!important}
+ .hero{background:#C5D3E8!important;min-height:590px!important}
+ .hero .shell{padding-top:65px!important;padding-bottom:70px!important}
+ .hero h1{font-family:'Space Grotesk',Arial,sans-serif!important;font-size:clamp(47px,7.3vw,110px)!important;line-height:1.02!important;letter-spacing:-.073em!important;margin:23px 0 27px!important;max-width:900px!important;overflow-wrap:normal!important;word-break:normal!important}
+ .hero h1 span{display:block!important;font-size:.63em!important;letter-spacing:-.065em!important;line-height:1.25!important;color:#D73527!important;margin-top:5px!important}
+ .hero .kicker{color:#333788!important}
+ .hero p{max-width:640px!important}
+ .hero-dancer{mix-blend-mode:screen!important;opacity:.85!important;filter:none!important}
+ .star{filter:none!important;background:transparent!important;mix-blend-mode:normal!important}
+ .star-a{width:150px!important;right:9%!important;top:35px!important}
+ .star-c{left:48%!important;top:190px!important;width:56px!important}
+ .meta span{background:#C5D3E8!important;border-color:#4d65AA!important}
+ .day:nth-of-type(even){background:#C5D3E8!important}
+ .person{background:#333788!important}
+ .poster-layout .eyebrow{color:#D17715!important}
+ .poster-layout img{box-shadow:16px 16px 0 #D73527!important}
+ .footer{background:#333788!important}
+ .footer,.poster-section{color:#C5D3E8!important}
+ .poster-section{background:#333788!important}
+ .slot{border-color:#4d65AA!important}
+ .cta{background:#D73527!important;color:#C5D3E8!important}
+ .floating-booking,.floating-cta,.book-now,.prenota-float{background:#D73527!important}
+ @media(max-width:850px){
+ .hero h1{font-size:clamp(43px,8.5vw,75px)!important;max-width:calc(100vw - 55px)!important}
+ .hero h1 span{font-size:.66em!important}
+ .hero-dancer{opacity:.4!important}
+ }
+ @media(max-width:570px){
+ .hero{min-height:510px!important}
+ .hero .shell{padding-top:46px!important;padding-bottom:64px!important}
+ .hero h1{font-size:clamp(39px,9vw,54px)!important;line-height:1.04!important;letter-spacing:-.07em!important;margin:22px 0!important;max-width:calc(100vw - 40px)!important}
+ .hero h1 span{font-size:.68em!important;line-height:1.18!important;margin-top:7px!important}
+ .hero-dancer{opacity:.25!important;right:-200px!important}
+ .star-a{width:85px!important;right:4%!important;top:22px!important}
+ .star-c{display:none!important}
+ }
+ `;
+ d.head.appendChild(css);
+ // Evita qualsiasi accento giallo residuo proveniente dalla versione precedente
+ d.querySelectorAll('[style]').forEach(el=>{
+ const style=el.getAttribute('style')||'';
+ if(/#ffd634|#ffdf|yellow/i.test(style)){
+  el.setAttribute('style',style.replace(/#ffd634|#ffdf00|yellow/gi,'#D17715'));
+ }
+ });
+}catch(err){console.error('Aggiornamento grafico non applicato',err);}
 });
 </script>
 </body>
