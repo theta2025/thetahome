@@ -29,11 +29,26 @@ try {
 
  const css=d.createElement('style');
  css.textContent=`
+
+ @font-face {
+  font-family:"Mostra Nuova AltD W00 Bold";
+  src:url("https://db.onlinewebfonts.com/t/cac1b55f12188b8a7e320cc735b72626.woff2") format("woff2"),
+      url("https://db.onlinewebfonts.com/t/cac1b55f12188b8a7e320cc735b72626.woff") format("woff");
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+ }
+ /* Titoli principali e titoli delle categorie: font ufficiale */
+ h1,h2,.hero h1,.day-title,.section-title,.categories-title,
+ .category-title,.category-name,.award-title,.day-head h3 {
+  font-family:"Mostra Nuova AltD W00 Bold",Arial,sans-serif!important;
+  font-weight:700!important;
+ }
  :root{--blue:#333788!important;--blue2:#4d65AA!important;--paper:#C5D3E8!important;--red:#D73527!important;--orange:#D17715!important;--ink:#333788!important;--white:#C5D3E8!important}
  html,body{background:#C5D3E8!important;color:#333788!important}
  .hero{background:#C5D3E8!important;min-height:590px!important}
  .hero .shell{padding-top:65px!important;padding-bottom:70px!important}
- .hero h1{font-family:'Space Grotesk',Arial,sans-serif!important;font-size:clamp(47px,7.3vw,110px)!important;line-height:1.02!important;letter-spacing:-.073em!important;margin:23px 0 27px!important;max-width:930px!important;overflow-wrap:normal!important;word-break:normal!important}
+ .hero h1{font-family:'Mostra Nuova AltD W00 Bold',Arial,sans-serif!important;font-size:clamp(47px,7.3vw,110px)!important;line-height:1.02!important;letter-spacing:-.073em!important;margin:23px 0 27px!important;max-width:930px!important;overflow-wrap:normal!important;word-break:normal!important}
  .hero h1 span{display:block!important;font-size:.63em!important;letter-spacing:-.06em!important;line-height:1.2!important;color:#D73527!important;margin-top:8px!important}
  .hero .kicker{color:#333788!important}
  .hero p{max-width:640px!important}
