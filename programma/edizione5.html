@@ -91,26 +91,32 @@ try {
    if(i % 3 !== 1) img.classList.add('theta-spin');
  });
 
- // Rimuove i link descrittivi / biografici: lascia solo testo e mantiene le prenotazioni
- d.querySelectorAll('a[href]').forEach(a=>{
+ // Elimina completamente i testi e i link "Scopri di più" nelle schede.
+ // Le prenotazioni restano cliccabili.
+ const removeScopri = () => {
+  d.querySelectorAll('a, button, span, p, div').forEach(el => {
+   if (!el.isConnected) return;
+   const t=(el.textContent||'').replace(/\\s+/g,' ').trim().toLowerCase();
+   if (/^scopri di più(?:\\s*[↗↗→➜⤴↑]*)?$/.test(t)) {
+     // Non cancellare contenitori che includono altre informazioni.
+     if (!Array.from(el.children).some(child =>
+       (child.textContent||'').replace(/\\s+/g,' ').trim() &&
+       !/^scopri di più/.test((child.textContent||'').trim().toLowerCase())
+     )) el.remove();
+   }
+  });
+  d.querySelectorAll('a[href]').forEach(a => {
    const href=(a.getAttribute('href')||'').trim().toLowerCase();
-   if(href.includes('prenotazioni')) return;
+   if (href.includes('prenotazioni')) return;
    const span=d.createElement('span');
-   while(a.firstChild) span.appendChild(a.firstChild);
-   span.className=a.className || '';
-   if(a.getAttribute('style')) span.setAttribute('style', a.getAttribute('style'));
+   while (a.firstChild) span.appendChild(a.firstChild);
+   span.className=a.className||'';
    a.replaceWith(span);
- });
-
- // Anche il sito in footer diventa testo semplice
- d.querySelectorAll('footer a, .footer a').forEach(a=>{
-   if((a.getAttribute('href')||'').toLowerCase().includes('prenotazioni')) return;
-   const span=d.createElement('span');
-   span.textContent=a.textContent;
-   span.className=a.className || '';
-   if(a.getAttribute('style')) span.setAttribute('style', a.getAttribute('style'));
-   a.replaceWith(span);
- });
+  });
+ };
+ removeScopri();
+ const obs=new MutationObserver(() => { obs.disconnect(); removeScopri(); });
+ obs.observe(d.body,{subtree:true,childList:true});
 
 } catch(err) {
  console.error('Aggiornamento grafico non applicato', err);
