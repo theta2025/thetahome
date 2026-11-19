@@ -96,11 +96,11 @@ try {
  const removeScopri = () => {
   d.querySelectorAll('a, button, span, p, div').forEach(el => {
    if (!el.isConnected) return;
-   const t=(el.textContent||'').replace(/\\s+/g,' ').trim().toLowerCase();
-   if (/^scopri di più(?:\\s*[↗↗→➜⤴↑]*)?$/.test(t)) {
+   const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
+   if (/^scopri di più(?:\s*[↗↗→➜⤴↑]*)?$/.test(t)) {
      // Non cancellare contenitori che includono altre informazioni.
      if (!Array.from(el.children).some(child =>
-       (child.textContent||'').replace(/\\s+/g,' ').trim() &&
+       (child.textContent||'').replace(/\s+/g,' ').trim() &&
        !/^scopri di più/.test((child.textContent||'').trim().toLowerCase())
      )) el.remove();
    }
