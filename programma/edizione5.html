@@ -91,6 +91,29 @@ try {
    if(i % 3 !== 1) img.classList.add('theta-spin');
  });
 
+ // Corregge la denominazione ufficiale nel piè di pagina.
+ d.querySelectorAll('footer, .footer').forEach(footer => {
+   const walker=d.createTreeWalker(footer,NodeFilter.SHOW_TEXT);
+   const nodes=[];
+   while(walker.nextNode()) nodes.push(walker.currentNode);
+   nodes.forEach(node=>{
+     node.nodeValue=node.nodeValue.replace(/Theta\\s+Film\\s+Festival/gi,'Theta Short Film Festival');
+   });
+ });
+ // Logo ufficiale ThetArte, senza link.
+ const thetarteLogo='https://static.tildacdn.net/tild3962-6163-4733-a335-663765643231/thetarte_logoRisorsa.png';
+ const headings=Array.from(d.querySelectorAll('h1,h2,h3,h4'));
+ const artHeading=headings.find(h=>/thetarte/i.test(h.textContent||''));
+ if(artHeading && !d.getElementById('theta-official-thetarte-logo')){
+   const img=d.createElement('img');
+   img.id='theta-official-thetarte-logo';
+   img.src=thetarteLogo;
+   img.alt='ThetArte';
+   img.loading='lazy';
+   img.style.cssText='display:block;width:min(310px,72vw);height:auto;object-fit:contain;margin:0 0 22px;max-width:100%;';
+   artHeading.insertAdjacentElement('afterend',img);
+ }
+
  // Elimina completamente i testi e i link "Scopri di più" nelle schede.
  // Le prenotazioni restano cliccabili.
  const removeScopri = () => {
