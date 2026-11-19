@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#333b8f">
+<title>PROGRAMMA DELLA 5ª EDIZIONE | Theta Film Festival</title>
+<meta name="description" content="Programma della 5ª edizione del Theta Film Festival. 26 e 27 novembre: categorie, ospiti e prenotazioni.">
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#333b8f}
+iframe{display:block;width:100%;height:100%;height:100dvh;border:0;background:#333b8f}
+</style>
+</head>
+<body>
+<iframe id="programma" src="index.html" title="Programma della 5ª edizione del Theta Film Festival" loading="eager"></iframe>
+<script>
+const frame=document.getElementById('programma');
+function stella(colore){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path fill="${colore}" d="M60 2 72 42 112 28 88 60 117 83 76 80 60 119 44 80 3 83 32 60 8 28 48 42Z"/><path fill="white" opacity=".12" d="M60 2 72 42 112 28 88 60 60 60Z"/></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+}
+frame.addEventListener('load',()=>{
+  try{
+    const d=frame.contentDocument;
+    d.title='PROGRAMMA DELLA 5ª EDIZIONE | Theta Film Festival';
+    const h=d.querySelector('.hero h1');
+    if(h){h.innerHTML='PROGRAMMA<br><span>DELLA 5ª</span><br>EDIZIONE';}
+    const kicker=d.querySelector('.hero .kicker');
+    if(kicker) kicker.textContent='THETA SHORT FILM FESTIVAL · 26 E 27 NOVEMBRE';
+    const colori=['#e94235','#53caff','#ffd634'];
+    d.querySelectorAll('.star').forEach((img,i)=>{img.src=stella(colori[i%3]);img.style.mixBlendMode='normal';});
+    const css=d.createElement('style');
+    css.textContent='.hero h1{font-size:clamp(40px,7vw,96px)!important;line-height:1.06!important;overflow-wrap:normal;max-width:900px}.hero h1 span{color:#ffd634!important}.star{filter:drop-shadow(0 7px 16px rgba(0,0,0,.12))!important}@media(max-width:620px){.hero h1{font-size:clamp(38px,9vw,58px)!important}.star-a{width:112px!important}}';
+    d.head.appendChild(css);
+  }catch(e){console.error('Impossibile applicare gli aggiornamenti al programma',e);}
+});
+</script>
+</body>
+</html>
