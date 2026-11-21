@@ -52,6 +52,30 @@ body{margin:0;background:var(--light);color:var(--blue);font-family:Arial,Helvet
 .footer span{font-size:13px}
 @media(max-width:760px){.hero{padding-top:120px;padding-bottom:65px}.hero h1{font-size:clamp(48px,12vw,80px)}.main{padding:48px 20px 76px}.article-wrap{grid-template-columns:1fr;gap:36px}.aside{order:-1}.aside-inner{position:static;border-top:2px solid var(--red);padding-top:12px}.aside p{margin-bottom:4px}.article p{font-size:16px;line-height:1.75}.article p.intro{font-size:19px}.decor{width:160px;height:160px;right:-60px;top:45px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Locandina ufficiale e galleria fotografie del comunicato */
+.hero .inner{padding-right:338px;min-height:445px}
+.hero-poster{position:absolute;top:0;right:12px;width:285px;max-height:425px;object-fit:contain;background:var(--blue);box-shadow:15px 15px 0 var(--red);transform:rotate(2deg)}
+.hero .lead{max-width:630px}
+.press-gallery{padding:85px 24px 98px;background:var(--blue);color:var(--light)}
+.press-gallery .inner{max-width:1040px}
+.press-gallery h2,.press-end h2{font-family:"Mostra Nuova",Arial,sans-serif;text-transform:uppercase;font-size:clamp(35px,5.8vw,73px);line-height:1.04;margin:14px 0 24px}
+.press-gallery p{font-size:16px;line-height:1.7;margin:0 0 26px;max-width:680px}
+.press-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.press-gallery-grid figure{margin:0;padding:7px;background:var(--light);color:var(--blue)}
+.press-gallery-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.press-gallery-grid figcaption{padding:11px 8px 5px;font-size:11px;font-weight:800;letter-spacing:.09em}
+.press-end{background:var(--light);padding:88px 24px 100px;text-align:center}
+.press-end .inner{max-width:770px}
+.press-end h2{color:var(--blue)}
+.press-end p{font-size:18px;line-height:1.65;margin:0 auto 32px;max-width:620px}
+.press-end .action{font-size:18px;padding:22px 40px;box-shadow:0 13px 28px rgba(215,53,39,.21)}
+.press-float{position:fixed;bottom:22px;right:22px;z-index:2000;background:var(--red);color:white;text-decoration:none;padding:14px 22px;border-radius:40px;box-shadow:0 8px 25px rgba(18,21,64,.26);font-size:14px;font-weight:900;letter-spacing:.05em}
+.press-float:hover{transform:translateY(-2px)}
+@media(max-width:850px){.hero .inner{padding-right:255px}.hero-poster{width:220px;max-height:350px}.hero h1{font-size:clamp(47px,7vw,85px)}}
+@media(max-width:650px){.hero .inner{padding-right:0}.hero-poster{position:relative;top:auto;right:auto;display:block;width:min(72vw,300px);max-height:none;margin:38px auto 16px}.press-gallery-grid{grid-template-columns:1fr}.press-gallery-grid img{aspect-ratio:16/10}.press-gallery{padding:58px 20px 65px}.press-end{padding:62px 20px 105px}.press-float{bottom:12px;right:12px;padding:12px 16px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.press-float:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -64,6 +88,7 @@ body{margin:0;background:var(--light);color:var(--blue);font-family:Arial,Helvet
     <div class="eventbar" aria-label="Informazioni sull'evento">
       <span>26 e 27 novembre 2026</span><span>In sala dalle 20:00</span><span>Cinema The Space · Vulcano Buono, Nola</span>
     </div>
+    <img class="hero-poster" src="media/locandina-ufficiale.svg" alt="Locandina ufficiale Theta Short Film Festival 2026" loading="eager">
   </div>
 </header>
 <main class="main">
@@ -89,6 +114,13 @@ body{margin:0;background:var(--light);color:var(--blue);font-family:Arial,Helvet
   </aside>
  </div>
 </main>
+
+<section class="press-gallery" aria-labelledby="photo-head"><div class="inner"><div class="eyebrow" style="color:var(--orange)">Fotografie ufficiali</div><h2 id="photo-head">IL FESTIVAL IN IMMAGINI</h2><p>Una selezione di fotografie della precedente edizione, tratte dai materiali allegati al comunicato stampa ufficiale.</p><div class="press-gallery-grid">
+<figure><img src="media/festival-archivio-1.svg" loading="lazy" alt="Theta Short Film Festival, edizione precedente — foto 1"><figcaption>EDIZIONE PRECEDENTE · 01</figcaption></figure>
+<figure><img src="media/festival-archivio-2.svg" loading="lazy" alt="Theta Short Film Festival, edizione precedente — foto 2"><figcaption>EDIZIONE PRECEDENTE · 02</figcaption></figure>
+<figure><img src="media/festival-archivio-3.svg" loading="lazy" alt="Theta Short Film Festival, edizione precedente — foto 3"><figcaption>EDIZIONE PRECEDENTE · 03</figcaption></figure>
+</div></div></section>
+<section class="press-end"><div class="inner"><div class="kicker">26 e 27 novembre 2026 · Nola</div><h2>CI VEDIAMO AL CINEMA.</h2><p>Due serate dedicate al cinema breve, agli incontri e alle arti visive. Prenota il tuo posto al Cinema The Space del Vulcano Buono.</p><a class="action" href="https://www.thetafilmfestival.it/prenotazioni" target="_top" rel="noopener">PRENOTA ORA ↗</a></div></section>
 <footer class="footer"><div class="footer-inner"><strong>THETA SHORT FILM FESTIVAL</strong><span>Associazione Culturale Il Cinematografo ETS · Nola</span></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script>
@@ -138,4 +170,5 @@ body{margin:0;background:var(--light);color:var(--blue);font-family:Arial,Helvet
  }catch(e){loading.hidden=true;error.hidden=false;console.error(e);}
 })();
 </script>
+<a class="press-float" href="https://www.thetafilmfestival.it/prenotazioni" target="_top" rel="noopener">PRENOTA ORA ↗</a>
 </body></html>
