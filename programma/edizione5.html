@@ -137,7 +137,19 @@ try {
    artHeading.replaceWith(img);
  }
 
- // Mantiene i pulsanti del catalogo, elimina ogni elemento flottante\n d.querySelectorAll('.floating-booking,.floating-cta,.book-now,.prenota-float').forEach(el=>el.remove());\n d.querySelectorAll('a[href]').forEach(a=>{\n   const href=a.getAttribute('href')||'';\n   const label=(a.textContent||'').trim();\n   if(/prenotazioni|prenota(?:re)?(?:\\s+ora|\\s+il tuo posto|\\s+i biglietti)?/i.test(href+' '+label)){\n     a.href='https://www.thetafilmfestival.it/catalogo5edizione';\n     a.target='_top';\n     a.textContent='CATALOGO VINCITORI ↗';\n   }\n });\n\n // Elimina completamente i testi e i link "Scopri di più" nelle schede.
+ // Mantiene i collegamenti al catalogo, elimina ogni pulsante in sovrimpressione.
+ d.querySelectorAll('.floating-booking,.floating-cta,.book-now,.prenota-float').forEach(el => el.remove());
+ d.querySelectorAll('a[href]').forEach(a => {
+   const href=(a.getAttribute('href')||'').toLowerCase();
+   const label=(a.textContent||'').toLowerCase();
+   if(href.includes('prenotazioni') || label.includes('prenota')) {
+     a.href='https://www.thetafilmfestival.it/catalogo5edizione';
+     a.target='_top';
+     a.textContent='CATALOGO VINCITORI ↗';
+   }
+ });
+
+ // Elimina completamente i testi e i link "Scopri di più" nelle schede.
  // Le prenotazioni restano cliccabili.
  const removeScopri = () => {
   d.querySelectorAll('a, button, span, p, div').forEach(el => {
